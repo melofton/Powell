@@ -1,0 +1,106 @@
+---
+title: "Powell data exploration"
+author: "KKH"
+date: "2024-03-07"
+output: html_document
+---
+
+```{r setup packages, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# Add the names of the packages 
+pacman::p_load(tidyverse, lubridate, gsheet)
+```
+
+
+```{r read in phyto data}
+profile_data <- read_csv("~/GitHubRepos/CareyLabVT/Powell/Data/ProfileData_LakePowell_1965-2022.csv")
+phyto_data <- read_csv("~/GitHubRepos/CareyLabVT/Powell/Data/PhytoplanktonData_LakePowell_1992-2022.csv", locale=locale(encoding="latin1"))
+site_visits <- read_csv("~/GitHubRepos/CareyLabVT/Powell/Data/SiteVisitData_LakePowell_1964-2022.csv")
+```
+
+```{r}
+library(dplyr)
+
+unique(phyto_data$Depth_m)
+unique(phyto_data$StationID)
+forebay <- c("LPCR0024", "LPCR0006")
+#LPCR0024 and LPCR0006 #forebay #these are the longest most frequently collected data
+phyto_analyze <- phyto_data %>% 
+  filter(StationID%in%forebay) 
+unique(phyto_analyze$StationID)
+
+unique(phyto_analyze$CollectionDateTime)
+phyto_analyze$CollectionDateTime <- mdy_hm(phyto_analyze$CollectionDateTime)
+phyto_analyze$Date <- date(phyto_analyze$CollectionDateTime)
+
+str(phyto_analyze)
+
+ggplot(phyto_analyze, aes(x = CollectionDateTime, y = Abundance, col=Division)) +
+  geom_point()
+ #facet_grid(Division ~., scales = "free_y")
+#  ggtitle("Current Year Timeseries")
+#“LPCR-249.” #Lees Ferry boat dock
+
+?lubridate
+
+phyto_analyze %>% 
+  filter(year(Date) == 2021) %>%
+  ggplot(aes(CollectionDateTime, Abundance)) + 
+    geom_col(aes(fill = Division)) #+ 
+
+    
+phyto_analyze %>% 
+  ggplot(aes(CollectionDateTime, Abundance)) + 
+    geom_col(aes(fill = Division)) + 
+  facet_wrap(~year(Date), scales = 'free')
+
+# phyto_analyze %>% 
+#   ggplot(aes(CollectionDateTime, Abundance, fill = Division))+ 
+#     geom_bar(position = "fill") #+ 
+#   facet_wrap(~year(Date), scales = 'free')
+  
+str(phyto_analyze)  
+library(scales)
+phyto_analyze %>% 
+  filter(year(CollectionDateTime) >= "1993") %>% 
+  ggplot(aes(fill=Division, y=Abundance, x= yday(Date))) + 
+    geom_bar(position="fill", stat="identity") +
+  facet_wrap(~year(Date)) + 
+  #scale_x_discrete(limits = 1:12, labels = month.abb)+
+  #scale_x_date(date_breaks = "1 month", date_labels = "%b")+
+    theme(axis.text.x=element_text(angle=90,hjust=1)) 
+#ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/phytodivisions_atdam_1993-2022_propabundance.png", width = 7.5, height = 5, units ="in")
+
+```
+
+```{r}
+site_visits
+forebay <- c("LPCR0024", "LPCR0006")
+#LPCR0024 and LPCR0006 #forebay #these are the longest most frequently collected data
+site_analyze <- site_visits %>% 
+  filter(StationID%in%forebay) 
+site_analyze
+unique(site_analyze$StationID)
+library(lubridate)
+site_analyze$CollectionDateTime <- ymd_hms(site_analyze$CollectionDateTime)
+site_analyze$Date <- date(site_analyze$CollectionDateTime)
+
+site_analyze
+site_analyze %>% 
+  ggplot(aes(y=LakeElevation_m, x=Date)) + 
+    geom_point() + 
+  #scale_x_discrete(limits = 1:12, labels = month.abb)+
+  scale_x_date(date_breaks = "5 years", date_labels = "%Y")+
+    theme(axis.text.x=element_text(angle=90,hjust=1)) + 
+  theme_bw()
+
+#ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/waterlevel_atdam.png", width = 7.5, height = 5, units ="in")
+
+
+```
+
+
+
+
+
+

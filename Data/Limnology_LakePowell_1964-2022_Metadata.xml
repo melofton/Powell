@@ -1,0 +1,1596 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Caitlin M Andrews</origin>
+        <origin>Bridget R Deemer</origin>
+        <pubdate>20221201</pubdate>
+        <title>Limnology data from Lake Powell, desert southwest USA (ver. 2.0, Sept. 2023)</title>
+        <geoform>tabular data</geoform>
+        <pubinfo>
+          <pubplace>Flagstaff, AZ</pubplace>
+          <publish>U.S. Geological Survey</publish>
+        </pubinfo>
+        <othercit>Additional information about Originators: Andrews, Caitlin M, https://orcid.org/0000-0003-4593-1071; Deemer, Bridget R, https://orcid.org/0000-0002-5845-1002</othercit>
+        <onlink>https://doi.org/10.5066/P9ZIKVYW</onlink>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>These data were compiled as part of a long-term (1964 - 2022) water quality monitoring program at Lake Powell. Objectives of our study were to release a consistent record of long-term water quality data. The 58-year limnology dataset captures some water quality parameters (temperature, salinity, major ions, total suspended solids) from reservoir filling to present day. It also contains a 38-year record of secchi depth, and a ~30-year record of nutrients, phytoplankton, and zooplankton assemblages. The data were collected from various sites within the Lake Powell reservoir and the Glen Canyon dam. Regular monthly sampling occurred at three sites near the dam and reservoir-wide sampling was generally conducted quarterly, or least annually, at anywhere from 8 to 37 sites. Secchi depth data is taken by field observation, profile information is taken on site with a sonde or CTD, and chemistry (major ion and nutrients), phytoplankton and zooplankton data are collected via preserved water sample, that is sent to laboratories for analysis. More detailed descriptions of the monitoring program and sampling methodology can be found in two prior U.S. Geological Survey data series reports (Vernieu 2015). These data span the introduction of an invasive bivalve (Dreissena bugensis). The dataset can be used to explore long-term trends in water quality at Lake Powell reservoir as well as to inform regional, continental, and global limnology studies.</abstract>
+      <purpose>The purpose of these data are to provide of a long-term record of water quality data at Lake Powell to the public. These data were created to monitor water quality at Lake Powell. These data can be used to both explore long-term trends in water quality at Lake Powell and to inform regional, continental and global scale limnology studies.</purpose>
+      <supplinf>The Lake Powell Water Quality Monitoring program formally began in 1965 and was motivated by basin-wide concern over high salinity levels in surface waters across the Colorado River Basin. The primary use for the water quality data collected from Lake Powell is to run a CE-QUAL-W2 model that predicts outflow temperature, dissolved oxygen and total dissolved solids concentrations to the Lower Colorado River. Site coordinates should be used as rough approximations of sampling location since the boat is not anchored during sample collection. Sonde and CTD-based pH was not generally field calibrated in between factory calibrations so drift was likely substantial. Lab pH measurements should also be interpreted with caution since samples were stored with a headspace allowing for carbon dioxide off-gassing. We urge caution when interpreting trends in phytoplankton samples as collection occurred solely at a depth of one meter. As a result, community data may not reflect what could occur at a chlorophyll maximum, likely located deeper into the lake due to the considerable water clarity and the potential for UV avoidance at the surface. For zooplankton, there has not been a study to evaluated net clogging (and associated underreporting of biomass), however extremely high biomass volumes have not been qualitatively observed. Overall, the detailed plankton geometries collected in tandem with community counts represent a unique component of this dataset that could be explored further.</supplinf>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <rngdates>
+          <begdate>1964</begdate>
+          <enddate>2022</enddate>
+        </rngdates>
+      </timeinfo>
+      <current>ground condition</current>
+    </timeperd>
+    <status>
+      <progress>Planned</progress>
+      <update>Annualy</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-111.584485</westbc>
+        <eastbc>-109.9127</eastbc>
+        <northbc>38.1697</northbc>
+        <southbc>36.865241</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>USGS Thesaurus</themekt>
+        <themekey>field inventory and monitoring</themekey>
+        <themekey>field monitoring stations</themekey>
+        <themekey>invasive species</themekey>
+        <themekey>laboratory methods</themekey>
+        <themekey>limnology</themekey>
+        <themekey>long-term ecological monitoring</themekey>
+        <themekey>oxygen content (water)</themekey>
+        <themekey>phytoplankton</themekey>
+        <themekey>plankton</themekey>
+        <themekey>profiles</themekey>
+        <themekey>salinity</themekey>
+        <themekey>turbidity</themekey>
+        <themekey>water chemistry</themekey>
+        <themekey>water quality</themekey>
+        <themekey>water sampling</themekey>
+        <themekey>water temperature</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS Metadata Identifier</themekt>
+        <themekey>USGS:62b39805d34e8f4977cb788c</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS information products</themekt>
+        <themekey>data release</themekey>
+      </theme>
+      <theme>
+        <themekt>ISO 19115 Topic Categories</themekt>
+        <themekey>inlandWaters</themekey>
+      </theme>
+      <theme>
+        <themekt>None</themekt>
+        <themekey>arid reservoir</themekey>
+        <themekey>chlorophyll a</themekey>
+        <themekey>discrete sample</themekey>
+        <themekey>dissolved oxygen</themekey>
+        <themekey>Dreissena bugensis</themekey>
+        <themekey>invasive bivalve</themekey>
+        <themekey>long-term trends</themekey>
+        <themekey>major ions</themekey>
+        <themekey>nutrients</themekey>
+        <themekey>zooplankton</themekey>
+        <themekey>reservoir</themekey>
+        <themekey>secchi depth</themekey>
+        <themekey>site visit</themekey>
+        <themekey>station location</themekey>
+        <themekey>total suspended solids</themekey>
+      </theme>
+      <place>
+        <placekt>Geographic Names Information System (GNIS)</placekt>
+        <placekey>Arizona</placekey>
+        <placekey>Aztec Creek</placekey>
+        <placekey>Bridge Creek</placekey>
+        <placekey>Cathedral Canyon</placekey>
+        <placekey>Clear Creek</placekey>
+        <placekey>Colorado River</placekey>
+        <placekey>Dark Canyon</placekey>
+        <placekey>Davis Gulch</placekey>
+        <placekey>Escalante River</placekey>
+        <placekey>Face Canyon</placekey>
+        <placekey>Glen Canyon</placekey>
+        <placekey>Glen Canyon Dam</placekey>
+        <placekey>Glen Canyon National Recreation Area</placekey>
+        <placekey>Gunsight Canyon</placekey>
+        <placekey>Labyrinth Canyon</placekey>
+        <placekey>Lake Powell</placekey>
+        <placekey>Last Chance Canyon</placekey>
+        <placekey>Lees Ferry</placekey>
+        <placekey>Navajo Canyon</placekey>
+        <placekey>Rainbow Bridge</placekey>
+        <placekey>Red Canyon</placekey>
+        <placekey>Rock Creek Canyon</placekey>
+        <placekey>San Juan River</placekey>
+        <placekey>Sheep Canyon</placekey>
+        <placekey>Utah</placekey>
+        <placekey>Wahweap Bay</placekey>
+        <placekey>Warm Creek Bay</placekey>
+        <placekey>West Canyon</placekey>
+      </place>
+      <place>
+        <placekt>None</placekt>
+        <placekey>Upper Colorado River Basin</placekey>
+        <placekey>Warm Creek Bay Alternate</placekey>
+      </place>
+    </keywords>
+    <accconst>none</accconst>
+    <useconst>none</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>Bridget R Deemer</cntper>
+          <cntorg>U.S. Geological Survey</cntorg>
+        </cntperp>
+        <cntpos>Research Ecologist</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>2255 North Gemini Drive</address>
+          <city>Flagstaff</city>
+          <state>AZ</state>
+          <postal>86001</postal>
+          <country>United States</country>
+        </cntaddr>
+        <cntvoice>928-556-7316</cntvoice>
+        <cntemail>bdeemer@usgs.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+    <datacred>This research was funded by the U.S. Bureau of Reclamation through the Glen Canyon Dam Adaptive Management Program. This data was collected with support from the Bureau of Reclamation Salinity Control Program.  We acknowledge Amy Stephenson and John Beaver for their long-term contributions to analyzing samples collected as part of this monitoring effort. We also acknowledge the Glen Canyon National Recreation Area and especially Mark Anderson for their commitment to boat support for sample collections. Finally, this dataset has benefitted from long-term sampling efforts of many committed limnologists, but especially Robert Radtke, Bill Vernieu, Susan Hueftle, and Nick Voichick.</datacred>
+    <crossref>
+      <citeinfo>
+        <origin>Rodger Baird</origin>
+        <origin>Andrew D. Eaton</origin>
+        <origin>Eugene W. Rice</origin>
+        <origin>American Public Health Association</origin>
+        <origin>American Water Works Association</origin>
+        <origin>Water Environment Federation</origin>
+        <origin>William S. Vernieu</origin>
+        <pubdate>2017</pubdate>
+        <title>Standard methods for the examination of water and wastewater, 23rd edition</title>
+        <pubinfo>
+          <pubplace>Washington, DC</pubplace>
+          <publish>American Public Health Association</publish>
+        </pubinfo>
+        <onlink>https://pubs.usgs.gov/ds/471/</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Bridget R. Deemer</origin>
+        <origin>Caitlin M. Andrews</origin>
+        <origin>Kristin E. Strock</origin>
+        <origin>Nick Voichick</origin>
+        <origin>James Hensleigh</origin>
+        <origin>John R. Beaver</origin>
+        <origin>Robert Radtke</origin>
+        <pubdate>2023</pubdate>
+        <title>Over half a century record of limnology data from Lake Powell, desert southwest USA: from reservoir filling to present day (1964-2021)</title>
+        <pubinfo>
+          <pubplace>Association for the Sciences of Limnology and Oceanography (online)</pubplace>
+          <publish>Limnology and Oceanography Letters</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.1002/lol2.10310</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>William S. Vernieu</origin>
+        <pubdate>2015</pubdate>
+        <title>Historical Physical and Chemical Data for Water in Lake Powell and from Glen Canyon Dam Releases, Utah-Arizona, 1964–2013: Data Series 471</title>
+        <pubinfo>
+          <pubplace>U.S. Geological Survey - Pubs Warehouse (online)</pubplace>
+          <publish>U.S. Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://pubs.usgs.gov/ds/471/</onlink>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>William S. Vernieu</origin>
+        <pubdate>2015</pubdate>
+        <title>Biological data for water in Lake Powell and from Glen Canyon Dam releases, Utah and Arizona, 1990–2009: Data Series 959</title>
+        <pubinfo>
+          <pubplace>U.S. Geological Survey - Pubs Warehouse (online)</pubplace>
+          <publish>U.S. Geological Survey</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.3133/ds959</onlink>
+      </citeinfo>
+    </crossref>
+  </idinfo>
+  <dataqual>
+    <attracc>
+      <attraccr>No formal attribute accuracy tests were conducted</attraccr>
+    </attracc>
+    <logic>No formal logical accuracy tests were conducted</logic>
+    <complete>Data set is considered complete for the information presented, as described in the abstract. Users are advised to read the rest of the metadata record carefully for additional details.</complete>
+    <posacc>
+      <horizpa>
+        <horizpar>No formal positional accuracy tests were conducted</horizpar>
+      </horizpa>
+      <vertacc>
+        <vertaccr>No formal positional accuracy tests were conducted</vertaccr>
+      </vertacc>
+    </posacc>
+    <lineage>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>Bureau of Reclamation - Upper Colorado Region</origin>
+            <pubdate>2022</pubdate>
+            <title>Water Operations: Historic Data</title>
+            <geoform>tabular data</geoform>
+            <pubinfo>
+              <pubplace>Bureau of Reclamation - Water Operations: Historic Data (online)</pubplace>
+              <publish>Bureau of Reclamation</publish>
+            </pubinfo>
+            <onlink>https://www.usbr.gov/rsvrWater/HistoricalApp.html</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>digital tabular data</typesrc>
+        <srctime>
+          <timeinfo>
+            <rngdates>
+              <begdate>19640425</begdate>
+              <enddate>20221231</enddate>
+            </rngdates>
+          </timeinfo>
+          <srccurr>ground condition</srccurr>
+        </srctime>
+        <srccitea>Historic Reservoir Data</srccitea>
+        <srccontr>These data provided daily lake elevation values for the SiteVisitData_LakePowell_1964-2022 table.</srccontr>
+      </srcinfo>
+      <procstep>
+        <procdesc>Development of ChemistryData_LakePowell_1964-2022 table: Chemistry samples were collected from discrete depths in the water column and analysed using standard protocols. Data reports generated by the lab were entered into the Lake Powell Water Quality database using the "CRUD" (create, read, update, delete) software developed specifically for this database. The database is housed on premises at the U.S. Geological Survey Southwest Biological Science Center and is currently formatted and managed using Microsoft SQL server (whereas previous verisons were housed in Microsoft Access). Relevant flags were also imported. Chemical concentrations were QAQCed in R by checking for expected range of values for each analyte. Values outside of this range were flagged and the values were removed (blank) from the dataset. This dataset was updated in the Spring of 2023 to include chemistry data collected in 2022.
+
+To prevent possible data issues chemical concentrations were quality controlled using R stistical software (TBD - code citation?) by checking for expected range of values for each analyte.
+
+Are you using a published water quality standard for data collection? or analysis?</procdesc>
+        <procdate>2023</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Development of DiscreteSampleData_LakePowell_1964-2022 table: The sample table is generated using unique sample IDs stored in the Lake Powell Water Quality database. Unique IDs are assigned to each of four sample types (major ions, nutrients, phytoplankton, zooplankton) by the "create, read, update, delete" (CRUD) interface as data gets entered into the database. This table also contains information on whether the sample was a QA/QC sample and its corresponding sample (required for duplicate and spike analysis). This QAQC data is entered manually into the database after each trip. This dataset was updated in the Spring of 2023 to include all samples collected in 2022.</procdesc>
+        <procdate>2023</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Development of PhytoplanktonData_LakePowell_1992-2022 table: Phytoplankton samples were collected from discrete depths in the water column (often from a depth of 1 meter below the surface) and were treated with lugols. Taxonomic ID reports generated by the lab were entered into the Lake Powell Water Quality database using the ""CRUD"" (create, read, update, delete) software. The database is housed on premises at the U.S. Geological Survey Southwest Biological Science Center and is currently formatted and managed using Microsoft SQL server (whereas previous verisons were housed in Microsoft Access). The taxonomic data were entered with an automated CRUD interface that uses fuzzy matching to ensure that species IDs are not repeated within the database (e.g. due to extra spaces or typos). This dataset  was updated in the Spring of 2023 to include phytoplankton data collected in 2022.</procdesc>
+        <procdate>2023</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Development of ProfileData_LakePowell_1965-2022 table: Water quality profiles were collected either by logging water quality attributes at discrete depths (pre-October 2010) or by 4Hz profiling (October 2010 forward). For the 4Hz profiling instrument, Seabird software was used to correct depth estimates using a set pressure offset based on the elevation of Lake Powell (offset was 1.258 calculated based on a pressure reading at the boat surface; see Application note 73 from Seabird). Only downcast measurements were saved to ensure that flow across the dissolved oxygen sensor was representative (and not backflush). Data were binned into 0.5 m increments from the surface to ~1 m above the bed. At shallow inflow sites with well-mixed flowing water, the water quality sensor was allowed to equilibrate mid-channel and a single time averaged value is reported for each water quality parameter. Profiles were entered into the Lake Powell Water Quality database using the CRUD software and flags were added to describe instrument drift, malfunction, or cage interference with surface readings. For analytes that were flagged as “do not use data” or “outside normal values”, values were excluded from the data release. For less severe flags “other”, values were still provided but were flagged and noted. Observations of small negative values in turbidity (-0.1 to -0.8 NTU) were relatively common prior to using the Seabird (n=195) and these values were forced to zero. The database is housed on premises at the U.S. Geological Survey Southwest Biological Science Center and is currently formatted and managed using Microsoft SQL server (whereas previous verisons were housed in Microsoft Access). This dataset  was updated in the Spring of 2023 to include profile data collected in 2022.</procdesc>
+        <procdate>2023</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Development of SecchiData_LakePowell_1984-2022 table: Secchi depths were measured using standard methods from the shady side of the boat. A qualitative field condition was also noted along with observer initials. This information was then entered into the Lake Powell Water Quality Database. Data were visually examined post-data-entry to ensure that no decimal places were left out.  The database is housed on premises at the U.S. Geological Survey Southwest Biological Science Center and is currently formatted and managed using Microsoft SQL server (whereas previous verisons were housed in Microsoft Access). This dataset was updated in the Spring of 2023 to include secchi data collected in 2022.</procdesc>
+        <procdate>2023</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Development of SiteVisitData_LakePowell_1964-2022 table: General information about each site visit is recorded upon arrival at the site. Daily lake elevation values are recorded from the Bureau of Reclamation Upper Colorado Region historical data app (https://www.usbr.gov/rsvrWater/HistoricalApp.html). Other surface data are manually entered into the Lake Powell Water Quality database via the "create, read, update, delete" (CRUD) interface. The database is housed on premises at the U.S. Geological Survey Southwest Biological Science Center and is currently formatted and managed using Microsoft SQL server (whereas previous verisons were housed in Microsoft Access). This dataset  was updated in the Spring of 2023 to include all sites visited in 2022.</procdesc>
+        <procdate>2023</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Development of StationData_LakePowell_1964-2022 table: Station latitude and longitude coordinates were measured using a standard handheld Garmin GPS unit. The site coordinates are then used to assign a unique Station ID which is 9 characters long.  It starts with “LP” for Lake Powell, and is followed by a 3 letter code for the river arm (generally “COL” for Colorado, “SJR” for San Juan, or “ESC” for Escalante). It ends with 4 numbers that represent its river kilometer position in the channel.  River kilometers are determined using a script that identifies the closest river kilometer to the coordinate in each river arm. Station ID, coordinates and any additional notes about site position were then entered into the Lake Powell Water Quality database. The database is housed on premises at the U.S. Geological Survey Southwest Biological Science Center and is currently formatted and managed using Microsoft SQL server (whereas previous verisons were housed in Microsoft Access). This dataset was updated in the Spring of 2023 to include any new inflow stations visited in 2022 and corrections to erroneous station locations were made.</procdesc>
+        <procdate>2023</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Development of ZooplanktonData_LakePowell_1986-2022 table: Zooplankton samples are collected as depth integrated net tows (on lake) or by filtering measured volumes of water from a discrete depth through the zooplankton net (tailwater). Lake zooplankton tows were often from 0-30 m depth with an additional tow from 30-60 m depth at the reservoir forebay site (LPCR0024). Taxonomic ID reports generated by the lab were entered into the Lake Powell Water Quality database using the CRUD software. The database is housed on premises at the U.S. Geological Survey Southwest Biological Science Center and is currently formatted and managed using Microsoft SQL server (whereas previous verisons were housed in Microsoft Access). The taxonomic data were entered with an automated CRUD interface that uses fuzzy matching to ensure that species IDs are not repeated within the database (e.g. due to extra spaces or typos). This dataset was updated in the Spring of 2023 to include zooplankton data collected in 2022.</procdesc>
+        <procdate>2023</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Data Quality Assessment and Quality Control (QAQC): In addition to flagging water quality profile data when water quality sensors were not performing to specification, profile data were visually examined for inconsistencies. Fluorometric sensors on the Seabird sometimes had anomalous readings near the surface, a phenomenon that was most pronounced for turbidity but also occurred for chlorophyll a. Method detection limits for nutrient and major ion data were estimated as either 4x the instrument detection or 3.14x the standard deviation of 7 samples run at the instrument detection limit. Instrument and lab analyst turnover have resulted in shifting detection limits over time for many of the analytes reported in this dataset. The number of decimal places reported for chemical concentration data reflect the estimated reporting limit, which we calculate as 3x the method detection limit.  Reagent and equipment blanks were collected beginning 12/01/1989 and have been collected on every trip starting in August of 2017. Duplicate and spike samples were collected as part of the historical sampling program (12/01/1989 through 12/18/2015 for duplicates; 07/21/1992 through 08/06/2014 for spikes). In 2022, we checked each chemistry analyte for an expected range of values. Values outside of these ranges were flagged. This flag was included in the data release and the suspect values were not included. Redundancies in the historic plankton database were eliminated so that there is only one instance of each Genus and species, together with their confidence (c.f.) reported. This included basic normalization practices such as removing extraneous spaces from name strings. In addition, sample “fragments” from the old database were merged into single records. Historical cases where Genus was reported with no “sp.” or “spp.” are reported as “Genus sp.” here.</procdesc>
+        <procdate>2023</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Finalize Data for Dissemination: Data sent to the Southwest Biological Science Center Data Steward for dissemination and preservation per USGS Data Management Policies SM 502.6, SM 502.7, SM 502.8 and SM 502.9 (1 October 2016).</procdesc>
+        <procdate>2023</procdate>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>ChemistryData_LakePowell_1964-2022</enttypl>
+        <enttypd>This data table is a complete record of chemistry laboratory analysis for each chemistry water sample collected at Lake Powell. The table contains location, depth, and date-time information, as well as concentrations of major anions and cations, nitrogen and phosphorus, TSS, TDS, and lab estimates of pH, alkalinity and electrical conductivity. The purpose of this data table is to provide a complete record of raw chemistry data at Lake Powell collected repeatedly at set time intervals and locations. This data table also includes chemistry data from QA/QC samples as well as lab detection limits and flags, thus representing a complete record of lab methodology and data limitations. Blank records in the data table = no data.</enttypd>
+        <enttypds>Producer defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>SampleFk</attrlabl>
+        <attrdef>This attribute in the data table represents a unique sample identifier. The attribute values are the key between connecting to several other data tables in the data release, Discrete Sample Data, Phytoplanton Data, and Zooplankton Data.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1</rdommin>
+            <rdommax>47065</rdommax>
+            <attrunit>integer number</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>TripID</attrlabl>
+        <attrdef>This attribute in the data table represents a unique trip identifier.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>The attribute values represent a trip identifier that can be used across tables.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>StationID</attrlabl>
+        <attrdef>This attribute in the data table represents a unique station identifier. Key between this table and the Station Data table.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>This code is 9 characters long. It starts with “LP” for Lake Powell, and is followed by a 3 letter code for the river arm (generally “COL” for Colorado, “SJR” for San Juan, or “ESC” for Escalante). It ends with 4 numbers that represent its river kilometer position in the channel.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>CollectionDateTime</attrlabl>
+        <attrdef>This attribute in the data table represents the date and time of the data collected for the site. Timezone is MST. Blank records in the data table represent QAQC samples that are associated with a trip but not a specific date and time.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>4/25/1964 11:00</rdommin>
+            <rdommax>12/9/22 12:15</rdommax>
+            <attrunit>mm/dd/yyyy hh:mm</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Depth_m</attrlabl>
+        <attrdef>This attribute in the data table represents the depth at which sample was taken. The attribute values represent depth in the water profile.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>200</rdommax>
+            <attrunit>meters</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>SampleType</attrlabl>
+        <attrdef>This attribute in the data table represents the type of sample collected.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>The attribute values represent either major ions or nutrient.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Analyte</attrlabl>
+        <attrdef>This attribute in the data table represents the name, in chemistry notation, of the element or compound tested. The attribute values represent the major ion or nutirent analyzed.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Alkalinity</edomv>
+            <edomvd>Alkalinity of unfiltered sample</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>Ca</edomv>
+            <edomvd>Dissolved Calcium</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>Cl</edomv>
+            <edomvd>Dissolved Chloride</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>CO3</edomv>
+            <edomvd>Dissolved Carbonate</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>Cond</edomv>
+            <edomvd>Specific Conductance</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>Fe</edomv>
+            <edomvd>Dissolved Iron</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>HCO3</edomv>
+            <edomvd>Dissolved Bicarbonate</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>K</edomv>
+            <edomvd>Dissolved Potassium</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>Mg</edomv>
+            <edomvd>Dissolved Magnesium</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>Na</edomv>
+            <edomvd>Dissolved Sodium</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>NH3-N</edomv>
+            <edomvd>Ammonia</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>NO23-N</edomv>
+            <edomvd>Nitrate + Nitrite</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>pH</edomv>
+            <edomvd>pH</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>SiO2</edomv>
+            <edomvd>Dissolved Silica</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>SO4</edomv>
+            <edomvd>Dissolved Sulfate</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>SRP</edomv>
+            <edomvd>Soluble Reactive Phosphorus</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>TDP</edomv>
+            <edomvd>Total Dissolved Phorophorus</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>TDS</edomv>
+            <edomvd>Total Dissolved Solids</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>TKN</edomv>
+            <edomvd>Total Kjeldahl Nitrogen</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>TN</edomv>
+            <edomvd>Total Nitrogen</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>TP</edomv>
+            <edomvd>Total Phosphorus</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>TSS</edomv>
+            <edomvd>Total Suspended Solids</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Value</attrlabl>
+        <attrdef>This attribute in the data table represents the concentration of the analyte detected in the sample.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>62200</rdommax>
+            <attrunit>see "Units" attribute value definitions</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Units</attrlabl>
+        <attrdef>This attribute in the data table represents the units for the corresponding "Value" attribute in the same row</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>mg/L</edomv>
+            <edomvd>milligrams per liter</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>µg/L</edomv>
+            <edomvd>micrograms per liter</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>µS/cm</edomv>
+            <edomvd>microsiemens per centimeter</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DetectionLimitFlag</attrlabl>
+        <attrdef>This attribute in the data table represents a flag indicating if the value detected for the analyte is at or below the detection limit.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;</edomv>
+            <edomvd>A value of “&lt;” means that the analyte detected was below the detection limit.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DetectionLimit</attrlabl>
+        <attrdef>This attribute in the data table represents the lowest possible value that was able to be detected by the lab at the time of analysis. Values belows the stated detection limit are not reliable. For this data release, values below the detection limit were changed to  the detection limit and flagged with a "&lt;"</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>10</rdommax>
+            <attrunit>integer number</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Flag</attrlabl>
+        <attrdef>This attribute in the data table identifies additional flags.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Blank cells</edomv>
+            <edomvd>The sample is not available.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>*</edomv>
+            <edomvd>The sample was analyzed twice.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>A</edomv>
+            <edomvd>anomalous value</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>B</edomv>
+            <edomvd>Flag meaning is unknown, but data should be used with caution.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>E</edomv>
+            <edomvd>The sample is an estimated value above the calibration range of the instrument.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>H</edomv>
+            <edomvd>The sample was held longer than the typical hold time.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>J</edomv>
+            <edomvd>The sample is above the method detection limit but below the reporting limit.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>M</edomv>
+            <edomvd>modified values; decimal place moved over due to suspected transcription mistake</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>SpikeSolutionValue</attrlabl>
+        <attrdef>This attribute in the data table represents a value added of the corresponding analyte to a sample. Only applies to samples where the QAQC Type is spike, reagent spike, or equipment spike. The attribute values represent the concentration of the analyte added to the sample, to test lab sensitivity of known concentration of certain analytes.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.001</rdommin>
+            <rdommax>0.4</rdommax>
+            <attrunit>decimal number</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>DiscreteSampleData_LakePowell_1964-2022</enttypl>
+        <enttypd>This data table is a record of each discrete sample taken as part of the Lake Powell Water Quality Monitoring Program. Discrete samples include chemistry, phytoplankton, and zooplankton samples. These samples are taken on the water and are sent to laboratories for further analysis. This table provides a record of when and where these samples were taken,  if they were QA/QC samples, and a record ID that can be used to relate to their respective sample type table. Blank records in the data table = no data.</enttypd>
+        <enttypds>Producer defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>SampleFk</attrlabl>
+        <attrdef>This attribute in the data table represents a unique sample identifier. The attribute values are the key between connecting to several other data table in the data release, Chemistry Data, and Phytoplanton Data, and Zooplankton Data.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1</rdommin>
+            <rdommax>47065</rdommax>
+            <attrunit>integer number</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>TripID</attrlabl>
+        <attrdef>This attribute in the data table represents a unique trip identifier.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>The attribute values represent a trip identifier that can be used across tables.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>StationID</attrlabl>
+        <attrdef>This attribute in the data table represents a unique station identifier. Key between this table and the Station Data table.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>This code is 9 characters long. It starts with “LP” for Lake Powell, and is followed by a 3 letter code for the river arm (generally “COL” for Colorado, “SJR” for San Juan, or “ESC” for Escalante). It ends with 4 numbers that represent its river kilometer position in the channel.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>CollectionDateTime</attrlabl>
+        <attrdef>This attribute in the data table represents the date and time of the data collected for the site. Timezone is MST. Blank records in the data table represent QAQC samples that are associated with a trip but not a specific date and time.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>4/25/1964 11:00</rdommin>
+            <rdommax>12/9/2022 12:15</rdommax>
+            <attrunit>mm/dd/yyyy hh:mm</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>SampleType</attrlabl>
+        <attrdef>This attribute in the data table represents the type of sample that was collected.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>There are four different sample types: Major Ions and Nutrients (both considered chemistry data), Phytoplankton and Zooplankton.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>QAQCType</attrlabl>
+        <attrdef>This attribute in the data table represents indicates if and the type of QAQC sample collected.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Blank cells</edomv>
+            <edomvd>Not Applicable - means it is a Regular Sample</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>D</edomv>
+            <edomvd>Duplicate</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>EB</edomv>
+            <edomvd>Equipment Blank</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>ES</edomv>
+            <edomvd>Equipment Spike</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>M</edomv>
+            <edomvd>Methods</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>RB</edomv>
+            <edomvd>Reagent Blank</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>RS</edomv>
+            <edomvd>Reagent Spike</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>S</edomv>
+            <edomvd>Spike</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>QAQCMatchingSampleFK</attrlabl>
+        <attrdef>This attribute in the data table represents the corresponding sample FK for certain QAQC sample types. Equipment blanks and reagent blanks do not have a QAQCMatchingFk. For QAQC types M, S, ES, and RS there is an expected difference between the original sample and the sample that QAQC was applied to. For QAQC Type D and M, we expect matching results between the original sample and the QAQC sample.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>12</rdommin>
+            <rdommax>26103</rdommax>
+            <attrunit>unitless</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>SurfaceFk</attrlabl>
+        <attrdef>This attribute in the data table represents a unique identifier for a site visit. Connects the discrete sample to a site visit in the Site Visit Data table.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1</rdommin>
+            <rdommax>6986</rdommax>
+            <attrunit>unitless</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Notes</attrlabl>
+        <attrdef>This attribute in the data table contains notes related to the methods employed for chemistry samples with QAQCType "M" and their matching primary sample.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>"Cartridge filter" indicates the high capacity trace metal grade Geotech filters that have been used to filter inflows since at least 2016.  "Lander filter" indicates the larger diameter 0.45 µm filters used in combination with a pre-filter.</udom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>PhytoplanktonData_LakePowell_1992-2022</enttypl>
+        <enttypd>This data table is a complete record of laboratory analysis for each phytoplankton sample collected at Lake Powell. The purpose of this data table is to provide phytoplankton taxonomic id, abundance, and biovolume as well as location, depth and date-time information for each Lake Powell phytoplankton sample collected. Each phytoplankton sample is associated with the sample table via the SampleFk field. Blank records in the data table = no data.</enttypd>
+        <enttypds>Producer defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>SampleFk</attrlabl>
+        <attrdef>This attribute in the data table represents a unique sample identifier. The attribute values are the key between connecting to several other data table in the data release, Chemistry Data, Discrete Sample Data, and Zooplankton Data.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>36779</rdommin>
+            <rdommax>46546</rdommax>
+            <attrunit>integer number</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>TripID</attrlabl>
+        <attrdef>This attribute in the data table represents a unique trip identifier.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>The attribute values represent a trip identifier that can be used across tables.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>StationID</attrlabl>
+        <attrdef>This attribute in the data table represents a unique station identifier. Key between this table and the Station Data table.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>This code is 9 characters long. It starts with “LP” for Lake Powell, and is followed by a 3 letter code for the river arm (generally “COL” for Colorado, “SJR” for San Juan, or “ESC” for Escalante). It ends with 4 numbers that represent its river kilometer position in the channel.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>CollectionDateTime</attrlabl>
+        <attrdef>This attribute in the data table represents the date and time of the data collected for the site. Timezone is MST.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>4/24/1992 9:20</rdommin>
+            <rdommax>10/18/2022 19:00</rdommax>
+            <attrunit>mm/dd/yyyy hh:mm</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Depth_m</attrlabl>
+        <attrdef>This attribute in the data table represents the depth from which sample was collected. This was set to the depth of the dam intake structure for samples taken from the draft tubes (“LPCRDT0X”).  This was set to 0.1 m for samples taken from the Lees Ferry dock unless otherwise specified in the historical dataset.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>90</rdommax>
+            <attrunit>meters</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Division</attrlabl>
+        <attrdef>This attribute in the data table represents the taxonomic ID is based on the Integrated Taxonomic Information System. Taxonomic designations reflect the nomenclature used at the time of analyses. Division is listed as “NA” when there was uncertainty in the genus-level ID of an organism.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <codesetd>
+            <codesetn>Integrated Taxonomic Information System</codesetn>
+            <codesets>https://www.itis.gov/</codesets>
+          </codesetd>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>GenusSpecies</attrlabl>
+        <attrdef>This attribute in the data table represents the Taxonomic ID is based on the Integrated Taxonomic Information System. Taxonomic designations reflect the nomenclature used at the time of analyses. This field generally follows the structure Genus species. A “cf.” in front of the genus or species indicates that the taxon resembles the named genus species. A “spp.” after the genus indicates that the analyst recognizes more than one distinguishable species of the given genus, but cannot ID them. A “sp.” after the genus indicates that the analyst recognizes one species of the given genus but it is not confident on the specific ID. In a small number of cases this field does not follow the “Genus species” structure but instead provides a more generic description of an unidentified group (e.g. “Small colonial cell”).</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <codesetd>
+            <codesetn>Integrated Taxonomic Information System</codesetn>
+            <codesets>https://www.itis.gov/</codesets>
+          </codesetd>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Abundance</attrlabl>
+        <attrdef>This attribute in the data table represents the abundance of the phytoplankton taxon.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>83100000</rdommax>
+            <attrunit>cells per liter</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>BioVolume_µm3_L</attrlabl>
+        <attrdef>This attribute in the data table represents the biovolume of the phytoplankton taxon.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>7491380000000</rdommax>
+            <attrunit>µm3 per liter</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Flag</attrlabl>
+        <attrdef>This attribute in the data table contains flags for holding time ("H").</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>H</edomv>
+            <edomvd>"H" flags were assigned to samples that were analyzed &gt;2 years after they were collected.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Notes</attrlabl>
+        <attrdef>This attribute in the data table represents information about the sample.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>Descriptive information such as high levels of detritus, ability to meet sample tally (400 natural units enumerated), and excessive holding time.</udom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>ProfileData_LakePowell_1965-2022</enttypl>
+        <enttypd>This data table is a complete record of every profile taken as part of the Lake Powell Water Quality Monitoring Program. Profile data was taken with a profiling instrument that recorded water quality parameters (i.e. temperature, dissolved oxygen, salinity, conductivity, etc.) in the water column, at various depths at the time of measurement. The table includes date-time information as well as information about the instrument type and flags. Each profile sample is associated with a site visit via the SurfaceFk Field. Blank records in the data table = no data.</enttypd>
+        <enttypds>Producer defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>TripID</attrlabl>
+        <attrdef>This attribute in the data table represents a unique trip identifier.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>The attribute values represent a trip identifier that can be used across tables.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>StationID</attrlabl>
+        <attrdef>This attribute in the data table represents a unique station identifier. Key between this table and the Station Data table.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>This code is 9 characters long. It starts with “LP” for Lake Powell, and is followed by a 3 letter code for the river arm (generally “COL” for Colorado, “SJR” for San Juan, or “ESC” for Escalante). It ends with 4 numbers that represent its river kilometer position in the channel.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>CollectionDateTime</attrlabl>
+        <attrdef>This attribute in the data table represents the date and time of the data collected for the site. Post October 2010, this field contains the instrument collection time stamp for a given sample and does not match the CollectionDateTime in the Site Visit Data table. Timezone is MST.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1/19/1965 14:30</rdommin>
+            <rdommax>12/8/2022 15:34</rdommax>
+            <attrunit>mm/dd/yyyy hh:mm</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Instrument</attrlabl>
+        <attrdef>This attribute in the data table represents the instrument used to collect water quality profile data.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>The product name of the instrument that was used to collect water quality profile samples, either Seabird SBE 19plus V2 SeaCAT CTD (6657) or Seabird SBE 19plus V2 SeaCAT CTD 2021 (8124).</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Depth_m</attrlabl>
+        <attrdef>This attribute in the data table represents the depth at which the water quality data was collected. Post October 2010, depths represent averages, where data was binned at 0.5 meter increments.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-0.099</rdommin>
+            <rdommax>157.6</rdommax>
+            <attrunit>meters</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Temperature_C</attrlabl>
+        <attrdef>This attribute in the data table represents the water temperature of profile sample.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-0.06</rdommin>
+            <rdommax>33.93</rdommax>
+            <attrunit>degrees Celsius</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Conductivity_uS_cm</attrlabl>
+        <attrdef>This attribute in the data table represents the conductivity of profile sample.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>270</rdommin>
+            <rdommax>1778</rdommax>
+            <attrunit>microsiemens per centimeter (µS/cm)</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>pH</attrlabl>
+        <attrdef>This attribute in the data table represents teh pH of profile sample. The attribute values represent pH. If values were reported as negative because of instrument malfunction, pH values were set to NA for this data release.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>3.9</rdommin>
+            <rdommax>9.9</rdommax>
+            <attrunit>unitless</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DO_mg_L</attrlabl>
+        <attrdef>This attribute in the data table represents the dissolved oxygen concentration of profile sample.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>17.79</rdommax>
+            <attrunit>milligrams per liter</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Turbidity_NTU</attrlabl>
+        <attrdef>This attribute in the data table represents the turbidity of profile sample.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>1040.8</rdommax>
+            <attrunit>Nephelometric Turbidity Unit</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Chlorophyll_ug_L</attrlabl>
+        <attrdef>This attribute in the data table represents the fluorometric measurement of chlorophyll a concentration.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-0.08</rdommin>
+            <rdommax>12.57</rdommax>
+            <attrunit>micrograms per liter (µg/L)</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Flag</attrlabl>
+        <attrdef>This attribute in the data table indicates sample needs to be used with caution.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>21 flags related to All Analytes , Chlorophyll , Conductivity . Dissolved Oxygen , pH, Temperature, and Turbidity</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>SurfaceFk</attrlabl>
+        <attrdef>This attribute in the data table represents a unique identifier for a site visit. Connects the profile sample to a site visit in the Site Visit Data table.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1</rdommin>
+            <rdommax>6981</rdommax>
+            <attrunit>unitless</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>ProfileFk</attrlabl>
+        <attrdef>This attribute in the data table represents a unique identifier for the profile.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>6</rdommin>
+            <rdommax>6183</rdommax>
+            <attrunit>unitless</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>SecchiData_LakePowell_1984-2022</enttypl>
+        <enttypd>This data table contains all secchi sample data for the Lake Powell Water Quality Monitoring Program. Includes location and date-time information for each secchi sample, as well as observer initials, information about field condition, and whether or not a scope was used. Each secchi sample is associated with a site visit via the SurfaceFk Field. Blank records in the data table = no data.</enttypd>
+        <enttypds>Producer defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>TripID</attrlabl>
+        <attrdef>This attribute in the data table represents a unique trip identifier.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>The attribute values represent a trip identifier that can be used across tables.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>StationID</attrlabl>
+        <attrdef>This attribute in the data table represents a unique station identifier. Key between this table and the Station Data table.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>This code is 9 characters long. It starts with “LP” for Lake Powell, and is followed by a 3 letter code for the river arm (generally “COL” for Colorado, “SJR” for San Juan, or “ESC” for Escalante). It ends with 4 numbers that represent its river kilometer position in the channel.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>CollectionDateTime</attrlabl>
+        <attrdef>This attribute in the data table represents the date and time of the data collected for the site. Timezone is MST.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>11/26/1984 23:00</rdommin>
+            <rdommax>12/8/2022 15:35</rdommax>
+            <attrunit>mm/dd/yyyy hh:mm</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Depth_m</attrlabl>
+        <attrdef>This attribute in the data table represents the depth at which the water quality data was collected. Post October 2010, depths represent averages, where data was binned at 0.5 meter increments.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>19.5</rdommax>
+            <attrunit>meters</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>FieldCondition</attrlabl>
+        <attrdef>This attribute in the data table represents a qualitative assessment of the ease at which the secchi depth measurement was taken.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>There are eight possible field conditions: Excellent, Excellent to Good, Fair, Fair to Poor, Good, Good to Fair, Poor, and Unknown.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Scope</attrlabl>
+        <attrdef>This attribute in the data table represents whether the 1 m aqua-scope was used to measure secchi depth.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>FALSE</edomv>
+            <edomvd>Scope was not used to take this measurement.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>TRUE</edomv>
+            <edomvd>Scope was used to take this measurement.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>ObserverInitials</attrlabl>
+        <attrdef>This attribute in the data table represents the initials of the observer who measured secchi depth.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>The first name initial and last name initial of the individual on the research team who collected the sample.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>SurfaceFk</attrlabl>
+        <attrdef>This attribute in the data table represents a unique identifier for a site visit. Connects the secchi sample to a site visit in the Site Visit Data table.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1</rdommin>
+            <rdommax>6981</rdommax>
+            <attrunit>unitless</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>SecchiFk</attrlabl>
+        <attrdef>This attribute in the data table represents a unique identifier for a secchi sample.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>206</rdommin>
+            <rdommax>9128</rdommax>
+            <attrunit>unitless</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>SiteVisitData_LakePowell_1964-2022</enttypl>
+        <enttypd>This data table represents provides information about each site visit (discrete site visit at a specific date and time). It includes location and date-time information for each site visit, as well as data about environmental conditions. Each site visit is associated with a station via the StationID Field. Blank records in the data table = no data.</enttypd>
+        <enttypds>Producer defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>SurfaceFk</attrlabl>
+        <attrdef>This attribute in the data table represents a unique Unique identifier for a site visit. Connects to the Profile Data, Secchi Data tables.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1</rdommin>
+            <rdommax>6986</rdommax>
+            <attrunit>unitless</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>TripID</attrlabl>
+        <attrdef>This attribute in the data table represents a unique trip identifier.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>The attribute values represent a trip identifier that can be used across tables.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>TripType</attrlabl>
+        <attrdef>This attribute in the data table represents the category of the site visit by trip type. The “Forebay” category comprises the regular sampling at both the reservoir forebay and in the tailwater, which has generally been conducted monthly. The “Reservoir Wide” sampling comprises the reservoir-wide trips that have generally been conducted quarterly. The “High Flow Experiment” sampling represents additional sampling conducted before, during, or after some (but not all) experimental high flow events. Profiles were sometimes conducted without accompanying chemistry or plankton sampling. These visits were assigned a “Forebay” or “Whole Reservoir” category if they represented the only trip in that month. Otherwise, these visits were assigned to the “Other” category.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Forebay</edomv>
+            <edomvd>The “Forebay” category comprises the regular sampling at both the reservoir forebay and in the tailwater, which has generally been conducted monthly.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>High Flow Experiment</edomv>
+            <edomvd>The “High Flow Experiment” sampling represents additional sampling conducted before, during, or after some (but not all) experimental high flow events. Most of these experimental flows were conducted as maximum power plant releases or greater (via bypass) for 24-168 hours in 1996, 1997, 2000 (twice), 2004, 2008, 2012, 2013, 2014, and 2018. There were also longer-term high steady flows conducted in the winter of 1997, spring of 2000, and in late spring to fall of 2011.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>Other</edomv>
+            <edomvd>Represents a non-routine trip type.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>Reservoir Wide</edomv>
+            <edomvd>The “Reservoir Wide” sampling comprises the reservoir-wide trips that have generally been conducted quarterly.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>StationID</attrlabl>
+        <attrdef>This attribute in the data table represents a unique station identifier. Key between this table and the Station Data table.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>This code is 9 characters long. It starts with “LP” for Lake Powell, and is followed by a 3 letter code for the river arm (generally “COL” for Colorado, “SJR” for San Juan, or “ESC” for Escalante). It ends with 4 numbers that represent its river kilometer position in the channel.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>CollectionDateTime</attrlabl>
+        <attrdef>This attribute in the data table represents the date and time of the data collected for the site. Timezone is MST.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>4/25/1964 11:00</rdommin>
+            <rdommax>12/9/2022 12:15</rdommax>
+            <attrunit>mm/dd/yyyy hh:mm</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>LakeElevation_m</attrlabl>
+        <attrdef>This attribute in the data table represents the elevation of the lake for that day. These data values were obtained by calling the Bureau of Reclamation hotline daily.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1036.4724</rdommin>
+            <rdommax>1130.195352</rdommax>
+            <attrunit>meters</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>BottomSounding_m</attrlabl>
+        <attrdef>This attribute in the data table represents the bottom sounding of the lake at the site.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>157.7</rdommax>
+            <attrunit>meters</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>IntakeDepth_m</attrlabl>
+        <attrdef>This attribute in the data table represents the penstock depth of the site for that day.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-21.18</rdommin>
+            <rdommax>72.54</rdommax>
+            <attrunit>meters</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>CloudCover_pct</attrlabl>
+        <attrdef>This attribute in the data table represents the cloud cover for that site at the collection date time.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>100</rdommax>
+            <attrunit>percent</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Inlet</attrlabl>
+        <attrdef>This attribute in the data table represents if the site in an inlet.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>FALSE</edomv>
+            <edomvd>Not treated as an inflow sample.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>TRUE</edomv>
+            <edomvd>An inflow sample.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>StationData_LakePowell_1964-2022</enttypl>
+        <enttypd>This data table lists all stations and their locations included in the Lake Powell Water Quality Monitoring Program. The purpose of this data table is to provide a full record and information about sampling sites on Lake Powell. Blank records in the data table = no data.</enttypd>
+        <enttypds>Producer defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>StationID</attrlabl>
+        <attrdef>This attribute in the data table represents a unique station identifier. Key between this table and the Station Data table.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>This code is 9 characters long. It starts with “LP” for Lake Powell, and is followed by a 3 letter code for the river arm (generally “COL” for Colorado, “SJR” for San Juan, or “ESC” for Escalante). It ends with 4 numbers that represent its river kilometer position in the channel.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Latitude</attrlabl>
+        <attrdef>This attribute in the data table represents the angular distance of the location for the site measured in degrees north of the equator. Datum is WGS84.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>36.865241</rdommin>
+            <rdommax>38.048466</rdommax>
+            <attrunit>decimal degrees</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Longitude</attrlabl>
+        <attrdef>This attribute in the data table represents the the angular distance of the location for the site measured in degrees west of the Greenwich prime meridian. Datum is WGS84.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-111.584485</rdommin>
+            <rdommax>-110.052732</rdommax>
+            <attrunit>decimal degrees</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Description</attrlabl>
+        <attrdef>This attribute in the data table represents a description of the site (if any) and could include a common name or date that the site was first sampled.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>A textual description of features at the data collection point, to assist in identifying its location. There are 135 individual descriptions for the sites.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>RiverArm</attrlabl>
+        <attrdef>This attribute in the data table represents the river or river arm that the station is located on.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>A textual description for the river or river arm at the data collection point, to assist in identifying its location. There are 11 individual identified rivers or river arms for the stations.</udom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <detailed>
+      <enttyp>
+        <enttypl>ZooplanktonData_LakePowell_1986-2022</enttypl>
+        <enttypd>This data table is a complete record of laboratory analysis for each zooplankton sample collected at Lake Powell. The purpose of this data table is to provide zooplankton taxonomic ID, abundance, and biomass together with information about location, date-time and tow depth for each Lake Powell xooplankton tow/sample. Each zooplankton sample is associated with the sample table via the SampleFk field. Blank records in the data table = no data.</enttypd>
+        <enttypds>Producer defined</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>SampleFk</attrlabl>
+        <attrdef>This attribute in the data table represents a unique sample identifier. The attribute values are the key between connecting to several other data table in the data release, Chemistry Data, Discrete Sample Data, and Phytoplanton Data.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>38880</rdommin>
+            <rdommax>46976</rdommax>
+            <attrunit>integer number</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>TripID</attrlabl>
+        <attrdef>This attribute in the data table represents a unique trip identifier.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>The attribute values represent a trip identifier that can be used across tables.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>StationID</attrlabl>
+        <attrdef>This attribute in the data table represents a unique station identifier. Key between this table and the Station Data table.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>This code is 9 characters long. It starts with “LP” for Lake Powell, and is followed by a 3 letter code for the river arm (generally “COL” for Colorado, “SJR” for San Juan, or “ESC” for Escalante). It ends with 4 numbers that represent its river kilometer position in the channel.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>CollectionDateTime</attrlabl>
+        <attrdef>This attribute in the data table represents the date and time of the data collected for the site. Timezone is MST.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>11/7/1986 9:30</rdommin>
+            <rdommax>12/9/2022 12:15</rdommax>
+            <attrunit>mm/dd/yyyy hh:mm</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>MinDepth_m</attrlabl>
+        <attrdef>This attribute in the data table represents the shallowest depth of the zooplankton tow. This was set to the depth of the dam intake structure for samples taken from the draft tubes (“LPCRDT0X”). This was set to 0.1 m for samples taken from the Lees Ferry dock unless otherwise specified in the historical dataset.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>500</rdommax>
+            <attrunit>meters</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>MaxDepth_m</attrlabl>
+        <attrdef>This attribute in the data table represents the deepest depth of the zooplankton tow. This was set to the depth of the dam intake structure for samples taken from the draft tubes (“LPCRDT0X”). This was set to 0.1 m for samples taken from the Lees Ferry dock unless otherwise specified in the historical dataset.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>500</rdommax>
+            <attrunit>meters</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Division</attrlabl>
+        <attrdef>This attribute in the data table represents the taxonomic ID is based on the Integrated Taxonomic Information System. Taxonomic designations reflect the nomenclature used at the time of analyses.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <codesetd>
+            <codesetn>Integrated Taxonomic Information System</codesetn>
+            <codesets>https://www.itis.gov/</codesets>
+          </codesetd>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Codeset</attrlabl>
+        <attrdef>This attribute in the data table represents the taxonomic ID is based on the Integrated Taxonomic Information System.  Taxonomic designations reflect the nomenclature used at the time of analyses. This field generally follows the structure Genus species. A “cf.” in front of the genus or species indicates that the taxon resembles the named genus species. A “spp.” after the genus indicates that the analyst recognizes more than one distinguishable species of the given genus, but cannot ID them.  A “sp.” after the genus indicates that the analyst recognizes one species of the given genus but is not confident on the specific ID. In a small number of cases this field does not follow the “genus species” structure but instead provides a more generic description of an unidentified group (e.g. “nauplii larvae”).</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <codesetd>
+            <codesetn>Integrated Taxonomic Information System</codesetn>
+            <codesets>https://www.itis.gov/</codesets>
+          </codesetd>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Abundance</attrlabl>
+        <attrdef>This attribute in the data table represents the abundance of the zooplankton taxon.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>7150</rdommax>
+            <attrunit>number per liter</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>BioMass</attrlabl>
+        <attrdef>This attribute in the data table represents the biomass of the zooplankton taxon.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>57736.96</rdommax>
+            <attrunit>µg dry weight per liter</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Notes</attrlabl>
+        <attrdef>This attribute in the data table represents information about the sample such as high levels of detritus, ability to meet sample tally (200 organisms), and excessive holding time.</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <udom>a textual description for information about the sample</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Flag</attrlabl>
+        <attrdef>This attribute in the data table contains flags for holding time ("H") and for degraded samples ("D"). "H" flags were assigned to  samples that were analyzed &gt;2 years after they were collected. "D" flags were assigned more recently to every record where the analyst noted that the sample had been degraded or that sample preservation was poor (which was noted from 2017 forward).</attrdef>
+        <attrdefs>Producer defined</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>D</edomv>
+            <edomvd>Sample degraded due to poor preservation and/or long holding time.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>H</edomv>
+            <edomvd>Sample was held longer than 2 years.</edomvd>
+            <edomvds>Producer defined</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntperp>
+          <cntper>GS ScienceBase</cntper>
+          <cntorg>U.S. Geological Survey</cntorg>
+        </cntperp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>Denver Federal Center, Building 810, Mail Stop 302</address>
+          <city>Denver</city>
+          <state>CO</state>
+          <postal>80225</postal>
+          <country>United States</country>
+        </cntaddr>
+        <cntvoice>1-888-275-8747</cntvoice>
+        <cntemail>sciencebase@usgs.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>The author(s) of these data request that data users contact them regarding intended use and to assist with understanding limitations and interpretation. Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. Although these data and associated metadata have been reviewed for accuracy and completeness and approved for release by the U.S. Geological Survey (USGS), no warranty expressed or implied is made regarding the display or utility of the data for other purposes, nor on all computer systems, nor shall the act of distribution constitute any such warranty.</distliab>
+    <techpreq>These files contains data available in comma-separated values (csv) format. The user must have software capable of displaying the data tables.</techpreq>
+  </distinfo>
+  <metainfo>
+    <metd>20230907</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Bridget R Deemer</cntper>
+          <cntorg>U.S. Geological Survey</cntorg>
+        </cntperp>
+        <cntpos>Research Ecologist</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>2255 North Gemini Drive</address>
+          <city>Flagstaff</city>
+          <state>AZ</state>
+          <postal>86001</postal>
+          <country>United States</country>
+        </cntaddr>
+        <cntvoice>928-556-7316</cntvoice>
+        <cntemail>bdeemer@usgs.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+  </metainfo>
+</metadata>
