@@ -1,0 +1,116 @@
+This is a quarto document for the analysis of data from the rapid literature review. 
+Figures to make: 
+histograms/barcharts with descriptive data
+regression
+
+```{r libraries}
+library(janitor)
+library(tidyverse)
+library(dplyr)
+library(lubridate)
+install.packages("qdapTools")
+library(qdapTools)
+library(tidyr)
+library(naniar)
+```
+read in extraction csv
+```{r read in data}
+data <- read.csv("~/GitHubRepos/CareyLabVT/Powell/Data/RapidLitReview_Extraction_edited.csv")
+data <- read.csv("~/GitHubRepos/CareyLabVT/Powell/Data/powell_litreview_edited2.csv")
+```
+
+```{r}
+data <- clean_names(data)
+
+
+```
+
+```{r}
+library(qdapTools)
+coltokeep <- c("include", "study_id", "title", "num_wb", "mgmt_concerns", "mgmt_strat", 
+               "country", "res_name", "lat_dd", "long_dd", "num_yrs",
+               "sampling_regime", "depth_max_m", "volume_m3", "sa_km2", "delta_water_level", "trophic_status", "number_of_sites_within_the_reservoir", "one_depth_or_multiple_depths", "what_biotic_variables_were_measured", "phyto_response_wl_decrease", "phyto_response_wl_increase", "cyano_response_wl_decrease", "cyano_response_wl_increase", "what_variables_were_identified_as_significant_drivers_of_phytoplankton_community", "sampling_months")  
+data_sub <- data %>% 
+  select(all_of(coltokeep)) %>% 
+  filter(include == "Yes") %>% 
+  select(-include)
+
+concern <- c("drought", "drawdown", "flooding", "water level fluctuation")
+binary_expand <- data_sub %>% 
+  cbind(mtabulate(strsplit(data_sub$sampling_months, "; "))) %>% 
+  cbind(mtabulate(strsplit(data_sub$mgmt_concerns, "; "))) %>% 
+  rename(concern_drawdown = drawdown, 
+         concern_flooding = flooding, 
+         concern_drought = drought, 
+         concern_waterlevelfluctuation = "water level fluctuation") %>% 
+  cbind(mtabulate(strsplit(data_sub$mgmt_strat, "; "))) %>% 
+  rename(strat_drawdown = drawdown, 
+         strat_episw = "epilimnion selective withdrawal", 
+         strat_metasw = "metalimnion selective withdrawal", 
+         strat_hyposw = "hypolimnion selective withdrawal", 
+         strat_refill = refill,
+         strat_flushing = "hydraulic flushing") 
+  #cbind(mtabulate(strsplit(data$trophic_status, "; "))) %>%  #need to address typos
+  #cbind(mtabulate(strsplit(data$what_biotic_variables_were_measured, "; "))) %>% 
+  # cbind(mtabulate(strsplit(data$what_was_the_cyanobacterial_response_to_decreases_in_water_level_or_drought, "; "))) %>% 
+  # cbind(mtabulate(strsplit(data$what_was_the_phytoplankton_response_to_decreases_in_water_level_or_drought, "; "))) 
+```
+
+```{r plots}
+str(binary_expand)
+
+na_strings <- c("NA", "N A", "N / A", "N/A", "N/ A", "Not Available", "NOt available", "")
+
+na_bin <- binary_expand %>%
+  replace_with_na_all(condition = ~.x %in% na_strings)
+
+phyto_decreasewl <- na_bin %>% 
+  subset(!is.na(phyto_response_wl_decrease)) %>% 
+  #replace_with_na(replace = list(phyto_response_wl_decrease = c("NA"))) %>% 
+  #select(!is.na(binary_expand$phyto_response_wl_decrease)) %>% 
+  ggplot(aes(x=phyto_response_wl_decrease)) + 
+  geom_bar() +
+  xlab("Phytoplankton response to water level decrease") +
+  ylab("Number of reservoirs") +
+  geom_text(aes(label = ..count..), stat = "count", vjust = 1.5, size = 5, colour = "white")
+
+ggsave("phyto_decreasewl.jpg", plot = phyto_decreasewl, height = 8, width = 8, units = "in")
+
+phyto_increasewl <- na_bin %>% 
+  subset(!is.na(phyto_response_wl_increase)) %>%
+  #select(!is.na(binary_expand$phyto_response_wl_decrease)) %>% 
+  ggplot(aes(x=phyto_response_wl_increase)) + 
+  geom_bar() + 
+  xlab("Phytoplankton response to an increase in water level")+
+  ylab("Number of reservoirs") +
+  geom_text(aes(label = ..count..), stat = "count", vjust = 1.5, size = 5, colour = "white")
+
+cyano_decreasewl <- na_bin %>% 
+  subset(!is.na(cyano_response_wl_decrease)) %>%
+  #select(!is.na(binary_expand$phyto_response_wl_decrease)) %>% 
+  ggplot(aes(x=cyano_response_wl_decrease)) + 
+  geom_bar() +
+  xlab("Cyanobacteria response to water level decreases") +
+  ylab("Number of reservoirs") +
+  geom_text(aes(label = ..count..), stat = "count", vjust = 1.5, size = 5, colour = "white")
+
+#cyano_increasewl <- 
+  na_bin %>% 
+  subset(!is.na(cyano_response_wl_increase)) %>%
+  #select(!is.na(binary_expand$phyto_response_wl_decrease)) %>% 
+  ggplot(aes(x=cyano_response_wl_increase)) + 
+  geom_bar() + 
+  xlab("Increases in water level: cyanobacteria response") + 
+  ylab("Number of reservoirs") +
+  geom_text(aes(label = ..count..), stat = "count", vjust = 1.5, size = 5, colour = "white")
+
+ggsave("phyto_decreasewl.jpg", plot = phyto_decreasewl, height = 8, width = 8, units = "in")
+ggsave("Plots/phyto_increasewl.jpg", plot = phyto_increasewl, height = 8, width = 8, units = "in")
+ggsave("cyano_decreasewl.jpg", plot = cyano_decreasewl, height = 8, width = 8, units = "in")
+ggsave("cyano_increasewl.jpg", plot = cyano_increasewl, height = 8, width = 8, units = "in")
+  
+  
+
+```
+
+
