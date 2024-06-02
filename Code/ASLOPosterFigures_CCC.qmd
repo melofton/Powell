@@ -493,3 +493,24 @@ test
 
 ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/test.png", plot = test, height = 12, width = 30, units = "in")
 ```
+
+```{r}
+#Cayelan's logistic regression code
+analysis <- boxplotdata2 |> 
+  select(prop_delta_wl, combined_phyto_response_binary, combined_cyano_response_binary, study_id) |> 
+  drop_na(prop_delta_wl) |> 
+  mutate(waterlevel = ifelse(prop_delta_wl>0,1,0))
+         
+phytolog <- glm(analysis$combined_phyto_response_binary~analysis$prop_delta_wl, family=binomial)
+summary(phytolog)
+
+cyanolog <- glm(analysis$combined_cyano_response_binary~analysis$prop_delta_wl, family=binomial)
+summary(cyanolog)
+
+#helpful guidance on logistic regression here: https://stackoverflow.com/questions/41384075/r-calculate-and-interpret-odds-ratio-in-logistic-regression
+
+
+
+
+
+```
