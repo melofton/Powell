@@ -22,6 +22,8 @@ library(mapview)
 library(rnaturalearth)
 library(rnaturalearthdata)
 library(ggplot2)
+#install.packages("infer")
+library(infer)
 ```
 
 ```{r read in data}
@@ -83,7 +85,7 @@ mgmtconcerns <- concerns %>%
         axis.text.x = element_text(angle = 45, hjust = 1, size = 16))
 
 mgmtconcerns
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/managementconcerns.png", plot = mgmtconcerns, height = 6, width = 10, units = "in")
+#ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/managementconcerns.png", plot = mgmtconcerns, height = 6, width = 10, units = "in")
 ```
 
 ```{r management strategies}
@@ -113,7 +115,7 @@ mgmtstrats <- mgmtstrat %>%
         axis.text.x = element_text(angle = 0, size = 20))
 
 mgmtstrats
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/managementstrategies.png", plot = mgmtstrats, height = 6, width = 10.5, units = "in")
+#ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/managementstrategies.png", plot = mgmtstrats, height = 6, width = 10.5, units = "in")
 ```
 
 ```{r trophic status}
@@ -163,7 +165,7 @@ trophicstatus <- trophic_expand1 %>%
         axis.text.x = element_text(angle = 45, hjust = 1, size = 20))
 trophicstatus
 
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/trophicstatus.png", plot = trophicstatus, height = 6, width = 6, units = "in")
+#ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/trophicstatus.png", plot = trophicstatus, height = 6, width = 6, units = "in")
 ```
 
 ```{r plots}
@@ -251,10 +253,10 @@ phyto_increasewl
 cyano_decreasewl
 cyano_increasewl
 
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/phyto_decreasewl.jpg", plot = phyto_decreasewl, height = 5, width = 7, units = "in")
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/phyto_increasewl.jpg", plot = phyto_increasewl, height = 3.5, width = 7, units = "in")
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/cyano_decreasewl.jpg", plot = cyano_decreasewl, height = 5, width = 7, units = "in")
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/cyano_increasewl.jpg", plot = cyano_increasewl, height = 8, width = 8, units = "in")
+# ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/phyto_decreasewl.jpg", plot = phyto_decreasewl, height = 5, width = 7, units = "in")
+# ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/phyto_increasewl.jpg", plot = phyto_increasewl, height = 3.5, width = 7, units = "in")
+# ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/cyano_decreasewl.jpg", plot = cyano_decreasewl, height = 5, width = 7, units = "in")
+# ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/cyano_increasewl.jpg", plot = cyano_increasewl, height = 8, width = 8, units = "in")
 ```
 
 ```{r map}
@@ -296,7 +298,7 @@ sitemap <- new_world %>% ggplot(fill = fill) +
         legend.position="none")
 sitemap
 
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/sitemap.jpg", plot = sitemap, height = 12, width = 14, units = "in")
+#ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/sitemap.jpg", plot = sitemap, height = 12, width = 14, units = "in")
 ```
 
 ```{r boxplot}
@@ -386,7 +388,7 @@ phyto_box_2
 
 # ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/cyanoresponseboxplot.jpg", plot = cyano_box_2, height = 8, width = 12, units = "in")
 # 
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/phytoplanktonresponseboxplot.jpg", plot = phyto_box_2, height = 8, width = 12, units = "in")
+#ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/phytoplanktonresponseboxplot.jpg", plot = phyto_box_2, height = 8, width = 12, units = "in")
 
 ```
 
@@ -415,8 +417,8 @@ cyanoresponsebinary <- boxplotdata2 %>%
 
 phytoresponsebinary
 cyanoresponsebinary
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/phytoresponsebinary.png", plot = phytoresponsebinary, height = 6, width = 10, units = "in")
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/cyanoresponsebinary.png", plot = cyanoresponsebinary, height = 6, width = 10, units = "in")
+# ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/phytoresponsebinary.png", plot = phytoresponsebinary, height = 6, width = 10, units = "in")
+# ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/cyanoresponsebinary.png", plot = cyanoresponsebinary, height = 6, width = 10, units = "in")
 ```
 
 ```{r}
@@ -491,7 +493,7 @@ test <- logregdata %>% ggplot(aes(x = prop_delta_wl, y = response_binary, color 
 
 test
 
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/test.png", plot = test, height = 12, width = 30, units = "in")
+#ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/test.png", plot = test, height = 12, width = 30, units = "in")
 ```
 
 ```{r}
@@ -499,7 +501,9 @@ ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/test.png", plot = test, 
 analysis <- boxplotdata2 |> 
   select(prop_delta_wl, combined_phyto_response_binary, combined_cyano_response_binary, study_id) |> 
   drop_na(prop_delta_wl) |> 
-  mutate(waterlevel = ifelse(prop_delta_wl>0,1,0))
+  mutate(waterlevel = as.factor(ifelse(prop_delta_wl>0,1,0)),
+         combined_phyto_response_binary = as.factor(combined_phyto_response_binary),
+         combined_cyano_response_binary = as.factor(combined_cyano_response_binary)) 
          
 phytolog <- glm(analysis$combined_phyto_response_binary~analysis$prop_delta_wl, family=binomial)
 summary(phytolog)
@@ -509,6 +513,11 @@ summary(cyanolog)
 
 #helpful guidance on logistic regression here: https://stackoverflow.com/questions/41384075/r-calculate-and-interpret-odds-ratio-in-logistic-regression
 
+phytochisq <- chisq_test(analysis, combined_phyto_response_binary ~ waterlevel)
+phytochisq
+
+cyanochisq <- chisq_test(analysis, combined_cyano_response_binary ~ waterlevel)
+cyanochisq
 
 
 
