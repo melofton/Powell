@@ -52,7 +52,11 @@ mosaic_phyto <- ggplot(data = dat) +
   theme(axis.line.x.bottom=element_line(color="white"),
         axis.line.y.left=element_line(color="white"))+
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+
 mosaic_phyto
+plot_dat <- ggplot_build(mosaic_phyto)$data %>%
+  as.data.frame %>%
+  select(label, .n)
 ggsave(mosaic_phyto, filename = "./Plots/mosaic_phyto.png",dev = "png",width = 8, height = 4,
        units = "in")
 
@@ -72,5 +76,8 @@ mosaic_cyano <- ggplot(data = dat) +
         axis.line.y.left=element_line(color="white"))+
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
 mosaic_cyano
+plot_dat <- ggplot_build(mosaic_cyano)$data %>%
+  as.data.frame %>%
+  select(label, .n)
 ggsave(mosaic_cyano, filename = "./Plots/mosaic_cyano.png",dev = "png",width = 8, height = 4,
        units = "in")
