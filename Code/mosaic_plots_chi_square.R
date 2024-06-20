@@ -58,20 +58,29 @@ dat2 <- bind_rows(dat_no_fluctuation_studies, fluctuation_studies_keep_increase)
          cyano_response_wl_increase = ifelse(is.na(cyano_response_wl_increase),"not reported",cyano_response_wl_increase)) %>%
   mutate(trophic_status_mosaic = ifelse((grepl("oligo",trophic_status) | grepl("meso",trophic_status)),"oligo-mesotrophic",
                                         ifelse(grepl("eu", trophic_status),"eu-hypereutrophic","not reported")),
-         increase_phyto = ifelse((phyto_response_wl_decrease == "increase" | phyto_response_wl_increase == "increase"),"yes","no"),
-         increase_cyano = ifelse((cyano_response_wl_decrease == "increase" | cyano_response_wl_increase == "increase"),"yes","no")) %>%
+         increase_phyto = ifelse((increase_decrease_mosaic == "increase" & phyto_response_wl_increase == "increase"),"yes",
+                                 ifelse(increase_decrease_mosaic == "increase" & phyto_response_wl_increase == "not reported","not reported",
+                                        ifelse(increase_decrease_mosaic == "decrease" & phyto_response_wl_decrease == "increase","yes",
+                                               ifelse(increase_decrease_mosaic == "decrease" & phyto_response_wl_decrease == "not reported","not reported","no")))),
+         increase_cyano = ifelse((increase_decrease_mosaic == "increase" & cyano_response_wl_increase == "increase"),"yes",
+                                 ifelse(increase_decrease_mosaic == "increase" & cyano_response_wl_increase == "not reported","not reported",
+                                        ifelse(increase_decrease_mosaic == "decrease" & cyano_response_wl_decrease == "increase","yes",
+                                               ifelse(increase_decrease_mosaic == "decrease" & cyano_response_wl_decrease == "not reported","not reported","no"))))) %>%
   select(increase_decrease_mosaic, trophic_status_mosaic, increase_phyto, increase_cyano) %>%
-  mutate(trophic_status_mosaic = factor(trophic_status_mosaic, levels = c("not reported","eu-hypereutrophic","oligo-mesotrophic")))
+  mutate(trophic_status_mosaic = factor(trophic_status_mosaic, levels = c("not reported","eu-hypereutrophic","oligo-mesotrophic")),
+         increase_phyto = factor(increase_phyto, levels = c("yes","no","not reported")),
+         increase_cyano = factor(increase_cyano, levels = c("yes","no","not reported")))
 
 mosaic_phyto <- ggplot(data = dat2) +
   geom_mosaic(aes(x=product(increase_phyto, trophic_status_mosaic, increase_decrease_mosaic), fill = increase_decrease_mosaic, alpha = increase_phyto)) + 
-  scale_alpha_manual(values =c(.5,.9)) +
+  scale_alpha_manual(values =c(.2,.5,.8)) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = .5)) + 
   labs(y="Trophic status", x="Water level increase or decrease", title = "Phytoplankton response to water level fluctuation",
        fill = "Did water level increase or decrease?",
        alpha = "Did phytoplankton increase?")+
-  scale_x_productlist(labels=c("no:decrease" = "WL decrease: \n no phyto increase", "yes:decrease" = "WL decrease: \n phyto increase",
-                               "no:increase" = "WL increase: \n no phyto increase", "yes:increase" = "WL increase: \n phyto increase"),
+  scale_x_productlist(labels=c("yes:decrease" = "WL decrease: \n phyto increase","no:decrease" = "WL decrease: \n no phyto increase", "not reported:decrease" = "WL decrease \n no response reported",
+                               "yes:increase" = "WL increase: \n phyto increase","no:increase" = "WL increase: \n no phyto increase",
+                                "not reported:increase" = "WL increase \n no response reported"),
                       expand = c(0,0))+
   scale_y_productlist(expand = c(0,0))+
   theme_classic()+
@@ -88,12 +97,13 @@ ggsave(mosaic_phyto, filename = "./Plots/mosaic_phyto.png",dev = "png",width = 8
 
 mosaic_cyano <- ggplot(data = dat2) +
   geom_mosaic(aes(x=product(increase_cyano, trophic_status_mosaic, increase_decrease_mosaic), fill = increase_decrease_mosaic, alpha = increase_cyano)) + 
-  scale_alpha_manual(values =c(.5,.9)) +
+  scale_alpha_manual(values =c(.2,.5,.8)) +
   labs(y="Trophic status", x="", title = "Cyanobacteria response to water level fluctuation",
        fill = "Did water level increase or decrease?",
        alpha = "Did cyanobacteria increase?")+
-  scale_x_productlist(labels=c("no:decrease" = "WL decrease: \n no cyano increase", "yes:decrease" = "WL decrease: \n cyano increase",
-                            "no:increase" = "WL increase: \n no cyano increase", "yes:increase" = "WL increase: \n cyano increase"),
+  scale_x_productlist(labels=c("yes:decrease" = "WL decrease: \n cyano increase","no:decrease" = "WL decrease: \n no cyano increase", "not reported:decrease" = "WL decrease \n no response reported",
+                               "yes:increase" = "WL increase: \n cyano increase","no:increase" = "WL increase: \n no cyano increase",
+                               "not reported:increase" = "WL increase \n no response reported"),
                       expand = c(0,0))+
   scale_y_productlist(expand = c(0,0))+
   theme_classic()+
