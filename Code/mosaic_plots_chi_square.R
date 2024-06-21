@@ -157,11 +157,34 @@ phyto_no_increase_wl_decrease <- phyto %>%
   filter(increase_decrease_mosaic == "decrease" & increase_phyto == "no") %>%
   count(increase_phyto) %>%
   pull(n)
+
+# Question 1: are there differences in phytoplankton responses to increases vs.
+# decreases in water level?
 M <- as.table(rbind(c(phyto_increase_wl_increase, phyto_increase_wl_decrease), c(phyto_no_increase_wl_increase, phyto_no_increase_wl_decrease)))
 dimnames(M) <- list(phyto_response = c("increase", "decrease or no change"),
                     water_level = c("increase","decrease"))
 M
 (Xsq <- chisq.test(M))  # Prints test summary
+Xsq$observed   # observed counts (same as M)
+Xsq$expected   # expected counts under the null
+Xsq$residuals  # Pearson residuals
+Xsq$stdres     # standardized residuals
+Xsq$p.value
+
+# Question 2: are there differences in the likelihood of phytoplankton to increase
+# or decrease given an increase in water level?
+M_increase <- M[,1]
+(Xsq <- chisq.test(M_increase))  # Prints test summary
+Xsq$observed   # observed counts (same as M)
+Xsq$expected   # expected counts under the null
+Xsq$residuals  # Pearson residuals
+Xsq$stdres     # standardized residuals
+Xsq$p.value
+
+# Question 3: are there differences in the likelihood of phytoplankton to increase
+# or decrease given a decrease in water level?
+M_decrease <- M[,2]
+(Xsq <- chisq.test(M_decrease))  # Prints test summary
 Xsq$observed   # observed counts (same as M)
 Xsq$expected   # expected counts under the null
 Xsq$residuals  # Pearson residuals
@@ -187,11 +210,34 @@ cyano_no_increase_wl_decrease <- cyano %>%
   filter(increase_decrease_mosaic == "decrease" & increase_cyano == "no") %>%
   count(increase_cyano) %>%
   pull(n)
+
+# Question 1: are there differences in cyanobacterial responses to increases vs.
+# decreases in water level?
 M <- as.table(rbind(c(cyano_increase_wl_increase, cyano_increase_wl_decrease), c(cyano_no_increase_wl_increase, cyano_no_increase_wl_decrease)))
 dimnames(M) <- list(cyano_response = c("increase", "decrease or no change"),
                     water_level = c("increase","decrease"))
 M
 (Xsq <- chisq.test(M))  # Prints test summary
+Xsq$observed   # observed counts (same as M)
+Xsq$expected   # expected counts under the null
+Xsq$residuals  # Pearson residuals
+Xsq$stdres     # standardized residuals
+Xsq$p.value
+
+# Question 2: are there differences in the likelihood of cyanobacteria to increase
+# or decrease given an increase in water level?
+M_increase <- M[,1]
+(Xsq <- chisq.test(M_increase))  # Prints test summary
+Xsq$observed   # observed counts (same as M)
+Xsq$expected   # expected counts under the null
+Xsq$residuals  # Pearson residuals
+Xsq$stdres     # standardized residuals
+Xsq$p.value
+
+# Question 3: are there differences in the likelihood of cyanobacteria to increase
+# or decrease given a decrease in water level?
+M_decrease <- M[,2]
+(Xsq <- chisq.test(M_decrease))  # Prints test summary
 Xsq$observed   # observed counts (same as M)
 Xsq$expected   # expected counts under the null
 Xsq$residuals  # Pearson residuals
