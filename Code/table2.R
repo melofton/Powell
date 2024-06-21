@@ -7,6 +7,7 @@
 # load packages
 library(tidyverse)
 library(lubridate)
+library(rlang)
 
 # read in data
 dat <- read_csv("./Data/Table2Data.csv") %>%
@@ -22,5 +23,9 @@ dat3 <- left_join(dat, dat2, by = c("cov_num")) %>%
          aim = `Aim of study`,
          num_waterbodies = `How many waterbodies are in this study?`,
          biotic_vars = `What biotic variables were measured?`) %>%
-  filter(!(study_id == "Carvalho 2022" & mgmt_concerns == "water level fluctuation"))
+  filter(!(study_id == "Carvalho 2022" & mgmt_concerns == "water level fluctuation")) %>%
+  unite(mgmt, mgmt_concerns:mgmt_strat, sep = "; ", remove = TRUE, na.rm = TRUE) %>%
+  select(study_id, aim, num_waterbodies, mgmt, biotic_vars)
 write.csv(dat3, "./Data/Table2.csv", row.names = FALSE)
+
+tab <- read_csv("./Data/Table2.csv")

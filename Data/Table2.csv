@@ -1,49 +1,49 @@
-"cov_num","study_id","aim","num_waterbodies","biotic_vars","mgmt_concerns","mgmt_strat"
-573,"Dzhaiani 2020","Examine interannual changes in phytoplankton as they relate to hydrodynamics.",1,"phytoplankton microscopy","water level fluctuation",NA
-542,"An 2003","analyzed how hydrological fluctuations (monsoons) influence water quality of a reservoir over a two-year period",1,"filtered chlorophyll (ug/L)","flooding",NA
-514,"Yan 2023","explore the interactive effects of hydrological characteristics and in-lake physicochemical parameters on phytoplankton community structure",1,"phytoplankton microscopy","water level fluctuation",NA
-499,"Khaliullina 2022","To study the influence of abiotic factors on seasonal phytoplankton dynamics",1,"phytoplankton microscopy",NA,"drawdown"
-496,"Camara 2015","""The present study focuses on the structure and function 
+"study_id","aim","num_waterbodies","mgmt","biotic_vars"
+"Dzhaiani 2020","Examine interannual changes in phytoplankton as they relate to hydrodynamics.",1,"water level fluctuation","phytoplankton microscopy"
+"An 2003","analyzed how hydrological fluctuations (monsoons) influence water quality of a reservoir over a two-year period",1,"flooding","filtered chlorophyll (ug/L)"
+"Yan 2023","explore the interactive effects of hydrological characteristics and in-lake physicochemical parameters on phytoplankton community structure",1,"water level fluctuation","phytoplankton microscopy"
+"Khaliullina 2022","To study the influence of abiotic factors on seasonal phytoplankton dynamics",1,"drawdown","phytoplankton microscopy"
+"Camara 2015","""The present study focuses on the structure and function 
 of phytoplankton community during periods of marked 
 changes in hydrological traits, influenced by an atypical 
 climatic event (La Niña) and its impact on Armando 
 Ribeiro Gonçalves Reservoir of Rio Grande do Norte, 
-situated in the Caatinga biome of northeastern Brazil.""",1,"filtered chlorophyll (ug/L); phytoplankton microscopy","flooding",NA
-452,"Zhao 2016","evaluate water quality of Three Gorges Reservoir from 2010-2013",1,"Other: E. coli","water level fluctuation",NA
-395,"Khaliullina 2009","a long-term dataset is used to analyze seasonal and interannual variation in the phytoplankton community in connection with seasonal water level changes",1,"phytoplankton microscopy","water level fluctuation",NA
-339,"Hoyer 2009","characterize how changes in outflow influence phytoplankton community composition in a reservoir",1,"phytoplankton microscopy","drought","hypolimnion selective withdrawal; metalimnion selective withdrawal; epilimnion selective withdrawal"
-318,"Mineeva 2021","examine long term trends in phytoplankton and describe seasonal dynamics",1,"Fluoroprobe (phytoplankton groups)","water level fluctuation",NA
-307,"Xiao 2016","""a 2-year investigation of the
+situated in the Caatinga biome of northeastern Brazil.""",1,"flooding","filtered chlorophyll (ug/L); phytoplankton microscopy"
+"Zhao 2016","evaluate water quality of Three Gorges Reservoir from 2010-2013",1,"water level fluctuation","Other: E. coli"
+"Khaliullina 2009","a long-term dataset is used to analyze seasonal and interannual variation in the phytoplankton community in connection with seasonal water level changes",1,"water level fluctuation","phytoplankton microscopy"
+"Hoyer 2009","characterize how changes in outflow influence phytoplankton community composition in a reservoir",1,"drought; hypolimnion selective withdrawal; metalimnion selective withdrawal; epilimnion selective withdrawal","phytoplankton microscopy"
+"Mineeva 2021","examine long term trends in phytoplankton and describe seasonal dynamics",1,"water level fluctuation","Fluoroprobe (phytoplankton groups)"
+"Xiao 2016","""a 2-year investigation of the
 succession of phytoplankton assemblages was conduct-
 ed from May 2007 to April 2009 in the backwater area
 of the Pengxi River (PBA), a typical tributary of the
-Yangtze River in the TGR.""",1,"filtered chlorophyll (ug/L); phytoplankton microscopy","water level fluctuation","refill; drawdown"
-286,"Beaver 2018","Aimed to characterize the response of phytoplankton and zooplankton communities to both linear and dynamic environmental changes across a 9 year time frame.",1,"phytoplankton microscopy; cyanobacterial toxins","drought","drawdown"
-284,"Beaver 2013","assesses drought and flood effects on phytoplankton community dynamics in six reservoirs of the middle Missouri River",6,NA,"drought; flooding",NA
-245,"Zhou 2022","""we attempt to (1) characterize the long-term trends in the phytoplankton phenology using several metrics, including the initiation, succession, and termination dates, in the TGR backwaters based on the Chla and Cyano-Chlorophyta index (CCI) time series derived from satellite imagery and (2) elucidate the environmental factors that drive the identified long-term trends in phytoplankton phenology, particularly focusing on the seasonal suc­cession phenology, in order to confirm whether the hypothetical reser­voir ecological regulation can be realized by adjusting the water level to 
+Yangtze River in the TGR.""",1,"water level fluctuation; refill; drawdown","filtered chlorophyll (ug/L); phytoplankton microscopy"
+"Beaver 2018","Aimed to characterize the response of phytoplankton and zooplankton communities to both linear and dynamic environmental changes across a 9 year time frame.",1,"drought; drawdown","phytoplankton microscopy; cyanobacterial toxins"
+"Beaver 2013","assesses drought and flood effects on phytoplankton community dynamics in six reservoirs of the middle Missouri River",6,"drought; flooding",NA
+"Zhou 2022","""we attempt to (1) characterize the long-term trends in the phytoplankton phenology using several metrics, including the initiation, succession, and termination dates, in the TGR backwaters based on the Chla and Cyano-Chlorophyta index (CCI) time series derived from satellite imagery and (2) elucidate the environmental factors that drive the identified long-term trends in phytoplankton phenology, particularly focusing on the seasonal suc­cession phenology, in order to confirm whether the hypothetical reser­voir ecological regulation can be realized by adjusting the water level to 
 guide the dynamics of phytoplankton habitat in the TGR backwaters, 
-thereby alleviating the harmful phytoplankton blooms""",1,"sensor chlorophyll (ug/L); Other: satellite chla","drawdown; water level fluctuation","drawdown"
-228,"Sakharova 2018","""characterize features ofthe phytoplankton formation in different littoral shallow water areas and in the deepwater part of the Rybinsk Reservoir in years with different temperature and level regimes""",1,"phytoplankton microscopy","drawdown",NA
-215,"Robert 2021","combining microbiological monitoring, hydrometeorological parameters and epidemiological analysis.",1,"pathogens","drought",NA
-214,"Carvalho 2022","explore effects of hydrological and climate variables on chl-a in large drinking water supply reservoirs in a semi-arid region",3,NA,"drought; water level fluctuation",NA
-206,"MacDonagh 2009","Examine how hydrology (rainy years with a lot of surface spill and higher renewal rates) affect phytoplankton and zooplankton.",1,"filtered chlorophyll (ug/L); phytoplankton microscopy; Other: zooplankton","water level fluctuation","epilimnion selective withdrawal"
-178,"Su 2017","""This study explores a possible novel strategy based on water level regulation to reduce the underwater light availability, thereby to prevent the blooming of MIB-producing cyanobacteria.""",1,"single cyanobacterial taxon","drawdown",NA
-165,"Fadel 2015","""In this study, we try to (1) present the temporal variation of
-physico-chemical parameters in Karaoun Reservoir, (2) identify its phytoplankton composition and (3) understand the processes controlling phytoplankton succession in this reservoir with a high water level fluctuation""",1,"filtered chlorophyll (ug/L); phytoplankton microscopy; Other: zooplankton microscopy","water level fluctuation",NA
-143,"Olds 2011","Compare water quality between a 4 year drought and 3 years of normal conditions",1,"sensor chlorophyll (ug/L)","drought",NA
-141,"Huang 2023","assess the effect of flushing (reducing water residence time to 3 days) on the growth of cyanobacteria and occurrence of blooms",1,"filtered chlorophyll (ug/L); phytoplankton microscopy",NA,"hydraulic flushing"
-140,"Pan 2018","Examine how a managed filling of the reservoir affected phytoplankton assemblage (sampling before, during and after).",1,"phytoplankton microscopy",NA,"refill"
-128,"Pham 2021","Investigate dynamic of toxic cyanobacteria and microcystin concentration in a tropical reservoir",1,"filtered chlorophyll (ug/L); phytoplankton microscopy; Other: DNA qPCR","water level fluctuation","drawdown"
-72,"Mendes 2022","""The present study evaluated the effects of water volume reduction on cyanobacterial abundance and heterocyst production in semiarid tropical reservoirs during a period of prolonged drought.""",3,"filtered chlorophyll (ug/L); phytoplankton microscopy","drought; drawdown",NA
-71,"Li 2018","Evaluate the influence of water level fluctuations (flood), temperature, stratification, and nutrients on the development of phytoplankton and cyanobacteria",1,"phytoplankton microscopy","water level fluctuation; flooding",NA
-68,"Magalhaes 2019","Surveyed the abundance and compositional changes of cyanobacteria in a tropical reservoir and analyzed effects of environmental factors using generalized linear models on a 6 year dataset",1,"phytoplankton microscopy; cyanobacterial toxins","water level fluctuation",NA
-66,"Pham 2022","Examine response of phytoplankton functional groups to hydrologic regime & physiochemical variables.",1,"filtered chlorophyll (ug/L); phytoplankton microscopy","water level fluctuation",NA
-64,"Abirhire 2019","assessed effect of hydrological drought on chl-a using 31 years of hydrologic data and remotely sensed chl-a",1,"filtered chlorophyll (ug/L)","drought",NA
-63,"Abirhire 2023","investigating how changes in flow (high flow vs. low flow years) affect major phytoplankton groups and cyanobacterial community in the river-reservoir using a 9-year timeseries",1,"phytoplankton microscopy",NA,NA
-55,"Bellinger 2018","Look at the effects of changing residence times (hydraulic pulsing rates) on ecosystem biophysicochemistry (cyanobacteria blooms, deep water hypoxia, submerged aquatic vegetation)",1,"filtered chlorophyll (ug/L); phytoplankton microscopy; Other: submerged aquatic vegetation surveys","drought; drawdown","hydraulic flushing; drawdown"
-53,"Gámez 2023","investigate probability of cyanoHABs in subtropical reservoir under drought",1,"phytoplankton microscopy","drought",NA
-50,"Havens 2019","assessing hydrologic factors controlling dynamics of cyanobacteria in shallow lakes in Florida",3,NA,"drought; water level fluctuation",NA
-32,"Ye 2022","aimed to examine whether water level fluctuation is a causal factor driving the dynamics of phytoplankton biomass and whether water level regulation can be used to control blooms",1,"filtered chlorophyll (ug/L)","water level fluctuation",NA
-25,"Song 2023","""The aim is to (1)  reveal the effects of selective withdrawal on the algal growth process and its limiting factors, (2) explore changes in hydrodynamic charac­teristics under selective withdrawal scenarios, and (3) analyze the re­lationships between hydrodynamic conditions and algal blooms in the reservoir.""",1,"filtered chlorophyll (ug/L)",NA,"hypolimnion selective withdrawal; metalimnion selective withdrawal; epilimnion selective withdrawal"
-21,"Liao 2024","investigate the impact of water level operations on algal blooms in a canyon reservoir",1,"filtered chlorophyll (ug/L); phytoplankton microscopy","water level fluctuation","refill; drawdown"
-20,"Bakker 2016","review of 12 case studies reporting water level fluctuations",12,NA,"water level fluctuation",NA
+thereby alleviating the harmful phytoplankton blooms""",1,"drawdown; water level fluctuation; drawdown","sensor chlorophyll (ug/L); Other: satellite chla"
+"Sakharova 2018","""characterize features ofthe phytoplankton formation in different littoral shallow water areas and in the deepwater part of the Rybinsk Reservoir in years with different temperature and level regimes""",1,"drawdown","phytoplankton microscopy"
+"Robert 2021","combining microbiological monitoring, hydrometeorological parameters and epidemiological analysis.",1,"drought","pathogens"
+"Carvalho 2022","explore effects of hydrological and climate variables on chl-a in large drinking water supply reservoirs in a semi-arid region",3,"drought; water level fluctuation",NA
+"MacDonagh 2009","Examine how hydrology (rainy years with a lot of surface spill and higher renewal rates) affect phytoplankton and zooplankton.",1,"water level fluctuation; epilimnion selective withdrawal","filtered chlorophyll (ug/L); phytoplankton microscopy; Other: zooplankton"
+"Su 2017","""This study explores a possible novel strategy based on water level regulation to reduce the underwater light availability, thereby to prevent the blooming of MIB-producing cyanobacteria.""",1,"drawdown","single cyanobacterial taxon"
+"Fadel 2015","""In this study, we try to (1) present the temporal variation of
+physico-chemical parameters in Karaoun Reservoir, (2) identify its phytoplankton composition and (3) understand the processes controlling phytoplankton succession in this reservoir with a high water level fluctuation""",1,"water level fluctuation","filtered chlorophyll (ug/L); phytoplankton microscopy; Other: zooplankton microscopy"
+"Olds 2011","Compare water quality between a 4 year drought and 3 years of normal conditions",1,"drought","sensor chlorophyll (ug/L)"
+"Huang 2023","assess the effect of flushing (reducing water residence time to 3 days) on the growth of cyanobacteria and occurrence of blooms",1,"hydraulic flushing","filtered chlorophyll (ug/L); phytoplankton microscopy"
+"Pan 2018","Examine how a managed filling of the reservoir affected phytoplankton assemblage (sampling before, during and after).",1,"refill","phytoplankton microscopy"
+"Pham 2021","Investigate dynamic of toxic cyanobacteria and microcystin concentration in a tropical reservoir",1,"water level fluctuation; drawdown","filtered chlorophyll (ug/L); phytoplankton microscopy; Other: DNA qPCR"
+"Mendes 2022","""The present study evaluated the effects of water volume reduction on cyanobacterial abundance and heterocyst production in semiarid tropical reservoirs during a period of prolonged drought.""",3,"drought; drawdown","filtered chlorophyll (ug/L); phytoplankton microscopy"
+"Li 2018","Evaluate the influence of water level fluctuations (flood), temperature, stratification, and nutrients on the development of phytoplankton and cyanobacteria",1,"water level fluctuation; flooding","phytoplankton microscopy"
+"Magalhaes 2019","Surveyed the abundance and compositional changes of cyanobacteria in a tropical reservoir and analyzed effects of environmental factors using generalized linear models on a 6 year dataset",1,"water level fluctuation","phytoplankton microscopy; cyanobacterial toxins"
+"Pham 2022","Examine response of phytoplankton functional groups to hydrologic regime & physiochemical variables.",1,"water level fluctuation","filtered chlorophyll (ug/L); phytoplankton microscopy"
+"Abirhire 2019","assessed effect of hydrological drought on chl-a using 31 years of hydrologic data and remotely sensed chl-a",1,"drought","filtered chlorophyll (ug/L)"
+"Abirhire 2023","investigating how changes in flow (high flow vs. low flow years) affect major phytoplankton groups and cyanobacterial community in the river-reservoir using a 9-year timeseries",1,"","phytoplankton microscopy"
+"Bellinger 2018","Look at the effects of changing residence times (hydraulic pulsing rates) on ecosystem biophysicochemistry (cyanobacteria blooms, deep water hypoxia, submerged aquatic vegetation)",1,"drought; drawdown; hydraulic flushing; drawdown","filtered chlorophyll (ug/L); phytoplankton microscopy; Other: submerged aquatic vegetation surveys"
+"Gámez 2023","investigate probability of cyanoHABs in subtropical reservoir under drought",1,"drought","phytoplankton microscopy"
+"Havens 2019","assessing hydrologic factors controlling dynamics of cyanobacteria in shallow lakes in Florida",3,"drought; water level fluctuation",NA
+"Ye 2022","aimed to examine whether water level fluctuation is a causal factor driving the dynamics of phytoplankton biomass and whether water level regulation can be used to control blooms",1,"water level fluctuation","filtered chlorophyll (ug/L)"
+"Song 2023","""The aim is to (1)  reveal the effects of selective withdrawal on the algal growth process and its limiting factors, (2) explore changes in hydrodynamic charac­teristics under selective withdrawal scenarios, and (3) analyze the re­lationships between hydrodynamic conditions and algal blooms in the reservoir.""",1,"hypolimnion selective withdrawal; metalimnion selective withdrawal; epilimnion selective withdrawal","filtered chlorophyll (ug/L)"
+"Liao 2024","investigate the impact of water level operations on algal blooms in a canyon reservoir",1,"water level fluctuation; refill; drawdown","filtered chlorophyll (ug/L); phytoplankton microscopy"
+"Bakker 2016","review of 12 case studies reporting water level fluctuations",12,"water level fluctuation",NA
