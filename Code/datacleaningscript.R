@@ -43,7 +43,9 @@ litdata2 <- litdata1 %>%
   mutate(cyano_response_wl_decrease = ifelse(cyano_response_wl_decrease == "shift" & cov_num == 63, "increase", cyano_response_wl_decrease)) %>% #"higher cyano biomass during drought"
   mutate(cyano_response_wl_decrease = ifelse(cyano_response_wl_decrease == "shift" & study_id == "Camara 2015", "increase", cyano_response_wl_decrease)) %>% #"higher cyano biomass during drought"
   mutate(cyano_response_wl_increase = ifelse(cyano_response_wl_increase == "shift" & study_id == "Camara 2015", "decrease", cyano_response_wl_increase)) #"lower cyano biomass after increased water level"
-    
-  
+
+litdata_cleaned <- litdata2
+
+write.csv(litdata_cleaned, "~/GitHubRepos/CareyLabVT/Powell/Data/litdata_cleaned.csv")  
 
 

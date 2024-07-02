@@ -187,8 +187,6 @@ depthplot %>%
 
 ```
 
-
-
 ```{r plots}
 #| echo: false
 

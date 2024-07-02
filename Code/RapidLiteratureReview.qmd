@@ -1,15 +1,12 @@
 ---
-title: "Particle filter"
+title: 
 format:
   html:
     embed-resources: true
 editor: visual
 ---
 
-This is a quarto document for the analysis of data from the rapid literature review. 
-Figures to make: 
-histograms/barcharts with descriptive data
-regression
+This is a quarto document for the analysis of data from the rapid literature review. Figures to make: histograms/barcharts with descriptive data regression
 
 ```{r libraries}
 #| echo: false
@@ -136,7 +133,6 @@ cyano_increasewl
 # ggsave("cyano_increasewl.jpg", plot = cyano_increasewl, height = 8, width = 8, units = "in")
 ```
 
-
 ```{r management concerns}
 #| echo: false
 
@@ -202,7 +198,6 @@ trophicstatus <- trophic_expand1 %>%
   geom_col(position = "dodge")
 trophicstatus
 ```
-
 
 ```{r management strategies}
 #| echo: false
@@ -319,6 +314,7 @@ regression_prop %>%
    #              geom = "text", aes(label = ..ymax..), vjust = -1)
 
 ```
+
 ```{r}
 binary_maxdepth <- regression_maxdepth %>% 
   mutate(phyto_decrease_binary = ifelse(phyto_response_wl_decrease == "not significant", 0, 
@@ -358,7 +354,6 @@ binary_maxdepth %>%
               se = FALSE)
 ```
 
-
 ```{r}
 binary_prop <- regression_prop %>% 
   mutate(phyto_decrease_binary = ifelse(phyto_response_wl_decrease == "not significant", 0, 
@@ -387,6 +382,7 @@ binary_prop %>%
               method.args = list(family = "binomial"),
               se = FALSE)
 ```
+
 ```{r}
 binary_prop %>% 
   ggplot(aes(x = prop_delta_wl, y = cyano_decrease_binary)) + 
@@ -496,7 +492,6 @@ phyto_box_increase <- boxplotdata %>%
 # ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/cyanoboxincrease.png", plot = cyano_box_increase, height = 8, width = 10, units = "in")
 ```
 
-
 ```{r}
 newdata <- read.csv("~/GitHubRepos/CareyLabVT/Powell/Data/edited_test_litreview.csv")
 
@@ -592,7 +587,3 @@ cyano_box_increase2 <- boxplotdata2 %>%
 cyano_box_increase2
 
 ```
-
-
-
-
