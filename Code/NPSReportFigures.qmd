@@ -58,10 +58,10 @@ my_countries <- c("Russia", "South Korea", "China", "Brazil", "Spain", "United S
 new_world <- mutate(world, fill = ifelse(sovereignt %in% c(my_countries), "yes", "no"))
 
 litdata_map <- litdata_na %>% 
-   mutate(mapvals = ifelse(((!is.na(phyto_response_wl_decrease)|!is.na(phyto_response_wl_increase)) & (!is.na(cyano_response_wl_decrease)|!is.na(cyano_response_wl_increase))), "both",
-                           ifelse(!is.na(phyto_response_wl_decrease)|!is.na(phyto_response_wl_increase), "phytoplankton", 
-                                 ifelse(!is.na(cyano_response_wl_decrease)|!is.na(cyano_response_wl_increase), "cyanobacteria",
-                                        ifelse(study_id == "Song 2023"|study_id== "Huang 2023", "selective withdrawal", "pathogen")))))
+   mutate(mapvals = ifelse(((!is.na(phyto_response_wl_decrease)|!is.na(phyto_response_wl_increase)) & (!is.na(cyano_response_wl_decrease)|!is.na(cyano_response_wl_increase))), "Both",
+                           ifelse(!is.na(phyto_response_wl_decrease)|!is.na(phyto_response_wl_increase), "Phytoplankton", 
+                                 ifelse(!is.na(cyano_response_wl_decrease)|!is.na(cyano_response_wl_increase), "Cyanobacteria",
+                                        ifelse(study_id == "Song 2023"|study_id== "Huang 2023", "Selective withdrawal", "Pathogen")))))
 
 sitemap <- new_world %>% ggplot(fill = fill) +
     geom_sf(data = new_world, aes(fill = factor(fill))) +
@@ -165,22 +165,23 @@ na_bin <- litdata_na %>%
     mutate(phyto_response_wl_up = ifelse(phyto_response_wl_increase == "not significant", "Not significant", 
                                 ifelse(phyto_response_wl_increase == "decrease", " Decrease", 
                                 ifelse(phyto_response_wl_increase == "increase", " Increase", 
-                               ifelse(phyto_response_wl_increase == "shift", "Shift", NA))))) %>% 
-                              #ifelse(phyto_response_wl_increase == "other", "Other", NA)))))) %>% 
+                               ifelse(phyto_response_wl_increase == "shift", "Shift",
+                              ifelse(phyto_response_wl_increase == "other", "Other", NA)))))) %>% 
     mutate(phyto_response_wl_down = ifelse(phyto_response_wl_decrease == "not significant", "Not significant", 
                                 ifelse(phyto_response_wl_decrease == "decrease", "Decrease", 
                                 ifelse(phyto_response_wl_decrease == "increase", "Increase", 
-                               ifelse(phyto_response_wl_decrease == "shift", "Shift to\n Cyanobacteria\n dominated\n community", NA)))))
+                               ifelse(phyto_response_wl_decrease == "shift", "Shift to\n Cyanobacteria\n dominated\n community", 
+                               ifelse(phyto_response_wl_decrease == "other", "Other", NA))))))
   
 
 phyto_decreasewl <- na_bin %>% 
   subset(!is.na(phyto_response_wl_down)) %>% 
   #replace_with_na(replace = list(phyto_response_wl_decrease = c("NA"))) %>% 
   #select(!is.na(binary_expand$phyto_response_wl_decrease)) %>% 
-  ggplot(aes(x= factor(phyto_response_wl_down, c("Increase", "Decrease", "Not significant","Shift to\n Cyanobacteria\n dominated\n community")))) + 
+  ggplot(aes(x= factor(phyto_response_wl_down, c("Increase", "Decrease", "Not significant","Shift to\n Cyanobacteria\n dominated\n community", "Other")))) + 
   geom_bar(fill = "#117733") +
-  xlab("Response to water level decrease") +
-  ylab("# of waterbodies") +
+  xlab("Phytoplankton response to water level decrease") +
+  ylab("Number of waterbodies") +
   geom_text(aes(label = ..count..), stat = "count", vjust = 1.5, size = 8, colour = "white") + 
     theme_bw() +
   theme(text = element_text(size = 20),
@@ -193,7 +194,7 @@ phyto_increasewl <- na_bin %>%
   #select(!is.na(binary_expand$phyto_response_wl_decrease)) %>% 
   ggplot(aes(x=phyto_response_wl_up)) + 
   geom_bar(fill = "#117733") + 
-  xlab("Phytoplankton response to an increase in water level")+
+  xlab("Phytoplankton response to water level increase")+
   ylab("Number of waterbodies") +
   geom_text(aes(label = ..count..), stat = "count", vjust = 1.5, size = 8, colour = "white") + 
     theme_bw() +
@@ -205,9 +206,9 @@ cyano_decreasewl <- na_bin %>%
   #select(!is.na(binary_expand$phyto_response_wl_decrease)) %>% 
   ggplot(aes(x=factor(cyano_response_wl_down, c("Increase", "Decrease", "Not significant", "Shift to \n Cyanobacteria \n dominated\n community")))) + 
   geom_bar(fill = "#88CCEE") +
-  #xlab("Cyanobacteria response to\n water level decrease") +
-  xlab("") +
-  ylab("# of waterbodies") +
+  xlab("Cyanobacteria response to water level decrease") +
+  #xlab("") +
+  ylab("Number of waterbodies") +
   geom_text(aes(label = ..count..), stat = "count", vjust = 1.5, size = 8, colour = "black") + 
     theme_bw() +
   theme(text = element_text(size = 20),
@@ -218,7 +219,7 @@ cyano_increasewl <- na_bin %>%
   #select(!is.na(binary_expand$phyto_response_wl_decrease)) %>% 
   ggplot(aes(x=cyano_response_wl_up)) + 
   geom_bar(fill = "#88CCEE") + 
-  xlab("Increases in water level: cyanobacteria response") + 
+  xlab("Cyanobacteria response to water level increase") + 
   ylab("Number of waterbodies") +
   geom_text(aes(label = ..count..), stat = "count", vjust = 1.5, size = 8, colour = "black") + 
     theme_bw() +
@@ -273,5 +274,160 @@ ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/trophic_status
 ```
 
 ```{r logistic regression}
+boxplotdata2 <- litdata_na %>%  #changed 0 and 1 for phyto_wl_increase :( after poster print :(
+  mutate(prop_delta_wl = delta_wl_direction/depth_max_m) %>% 
+    mutate(phyto_binary_increase = ifelse(phyto_response_wl_increase == "not significant", 0, 
+                                ifelse(phyto_response_wl_increase == "decrease", 0, 
+                                ifelse(phyto_response_wl_increase == "increase", 1, NA)))) %>% 
+  mutate(phyto_binary_decrease = ifelse(phyto_response_wl_decrease == "not significant", 0, 
+                                ifelse(phyto_response_wl_decrease == "decrease", 0, 
+                                ifelse(phyto_response_wl_decrease == "increase", 1, NA)))) %>%
+  # mutate(combined_phyto_response_text = phyto_response_wl_decrease %>% 
+  #          is.na() %>% 
+  #          ifelse(phyto_response_wl_increase, phyto_response_wl_decrease)) %>% 
+    mutate(combined_phyto_response_binary = phyto_binary_decrease %>% 
+           is.na() %>% 
+           ifelse(phyto_binary_increase, phyto_binary_decrease)) %>% 
+    mutate(cyano_binary_increase = ifelse(cyano_response_wl_increase == "not significant", 0, 
+                                ifelse(cyano_response_wl_increase == "decrease", 0, 
+                                ifelse(cyano_response_wl_increase == "increase", 1, NA)))) %>% 
+  mutate(cyano_binary_decrease = ifelse(cyano_response_wl_decrease == "not significant", 0, 
+                                ifelse(cyano_response_wl_decrease == "decrease", 0, 
+                                ifelse(cyano_response_wl_decrease == "increase", 1, NA)))) %>%
+  # mutate(combined_phyto_response_text = phyto_response_wl_decrease %>% 
+  #          is.na() %>% 
+  #          ifelse(phyto_response_wl_increase, phyto_response_wl_decrease)) %>% 
+    mutate(combined_cyano_response_binary = cyano_binary_decrease %>% 
+           is.na() %>% 
+           ifelse(cyano_binary_increase, cyano_binary_decrease)) %>% 
+  mutate(cyano_response_wl_up = ifelse(cyano_response_wl_increase == "not significant", "Not significant", 
+                                ifelse(cyano_response_wl_increase == "decrease", "Decrease ", 
+                                ifelse(cyano_response_wl_increase == "increase", "Increase ", 
+                               ifelse(cyano_response_wl_increase == "shift", "Shift", NA))))) %>% 
+    mutate(cyano_response_wl_down = ifelse(cyano_response_wl_decrease == "not significant", "Not significant", 
+                                ifelse(cyano_response_wl_decrease == "decrease", "Decrease", 
+                                ifelse(cyano_response_wl_decrease == "increase", "Increase", 
+                               ifelse(cyano_response_wl_decrease == "shift", "Shift to \n Cyanobacteria \n dominated\n community", NA))))) %>% 
+  mutate(combined_cyano_response = cyano_response_wl_down %>% 
+           is.na() %>% 
+           ifelse(cyano_response_wl_up, cyano_response_wl_down)) %>% 
+    mutate(phyto_response_wl_up = ifelse(phyto_response_wl_increase == "not significant", "Not significant", 
+                                ifelse(phyto_response_wl_increase == "decrease", "Decrease ", 
+                                ifelse(phyto_response_wl_increase == "increase", "Increase ", 
+                               ifelse(phyto_response_wl_increase == "shift", "Shift", NA))))) %>% 
+    mutate(phyto_response_wl_down = ifelse(phyto_response_wl_decrease == "not significant", "Not significant", 
+                                ifelse(phyto_response_wl_decrease == "decrease", "Decrease", 
+                                ifelse(phyto_response_wl_decrease == "increase", "Increase", 
+                               ifelse(phyto_response_wl_decrease == "shift", "Shift to\n Cyanobacteria\n dominated\n community", NA))))) %>% 
+  mutate(combined_phyto_response = phyto_response_wl_down %>% 
+           is.na() %>% 
+           ifelse(phyto_response_wl_up, phyto_response_wl_down))
+
+# phytoresponsebinary <- boxplotdata2 %>% 
+#   ggplot(aes(x = prop_delta_wl, y = combined_phyto_response_binary)) + 
+#   geom_point() + geom_smooth(method = "glm", 
+#               method.args = list(family = "binomial"),
+#               se = FALSE) + 
+#   ylab("Phytoplankton response to changes in water level") + 
+#   xlab("Proportion water level change") +
+#     theme_bw() +
+#   theme(text = element_text(size = 20),
+#         axis.text.x = element_text(angle = 45, hjust = 1, size = 16))
+# 
+# cyanoresponsebinary <- boxplotdata2 %>% 
+#   ggplot(aes(x = prop_delta_wl, y = combined_cyano_response_binary)) + 
+#   geom_point() + geom_smooth(method = "glm", 
+#               method.args = list(family = "binomial"),
+#               se = FALSE) + 
+#   ylab("Cyanobacterial response to changes in water level") + 
+#   xlab("Proportion water level change") +   
+#   theme_bw() +
+#   theme(text = element_text(size = 20),
+#         axis.text.x = element_text(angle = 45, hjust = 1, size = 16))
+
+# phytoresponsebinary
+# cyanoresponsebinary
+# ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/phytoresponsebinary.png", plot = phytoresponsebinary, height = 6, width = 10, units = "in")
+# ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/cyanoresponsebinary.png", plot = cyanoresponsebinary, height = 6, width = 10, units = "in")
 
 ```
+
+```{r}
+cyanodecreasedata <- boxplotdata2 %>% 
+  select(prop_delta_wl, combined_cyano_response, combined_cyano_response_binary, study_id) %>% 
+  filter(!is.na(prop_delta_wl)) %>%
+  filter(!is.na(combined_cyano_response_binary)) %>% 
+  filter(prop_delta_wl<0) %>% 
+  rename(response_binary = combined_cyano_response_binary, 
+         response = combined_cyano_response) %>% 
+  mutate(type = "cyano")
+
+cyanoincreasedata <- boxplotdata2 %>% 
+  select(prop_delta_wl, combined_cyano_response, combined_cyano_response_binary, study_id) %>% 
+  filter(!is.na(prop_delta_wl)) %>%
+  filter(!is.na(combined_cyano_response_binary)) %>% 
+  filter(prop_delta_wl>0) %>% 
+  rename(response_binary = combined_cyano_response_binary, 
+         response = combined_cyano_response) %>% 
+  mutate(type = "cyano")
+
+phytoincreasedata <- boxplotdata2 %>% 
+  select(prop_delta_wl, combined_phyto_response, combined_phyto_response_binary, study_id) %>% 
+  filter(!is.na(prop_delta_wl)) %>% 
+  filter(!is.na(combined_phyto_response_binary)) %>% 
+  filter(prop_delta_wl>0) %>% 
+  rename(response_binary = combined_phyto_response_binary, 
+         response = combined_phyto_response) %>% 
+  mutate(type = "phyto")
+
+phytodecreasedata <- boxplotdata2 %>% 
+  select(prop_delta_wl, combined_phyto_response, combined_phyto_response_binary, study_id) %>% 
+  filter(!is.na(prop_delta_wl)) %>% 
+  filter(!is.na(combined_phyto_response_binary)) %>% 
+  filter(prop_delta_wl<0) %>% 
+  rename(response_binary = combined_phyto_response_binary, 
+         response = combined_phyto_response) %>% 
+  mutate(type = "phyto")
+  
+cyanodata <- boxplotdata2 %>% 
+  select(prop_delta_wl, combined_cyano_response, combined_cyano_response_binary, study_id) %>% 
+  filter(!is.na(prop_delta_wl)) %>%
+  filter(!is.na(combined_cyano_response_binary)) %>% 
+  # filter(prop_delta_wl<0) %>% 
+  rename(response_binary = combined_cyano_response_binary, 
+         response = combined_cyano_response) %>% 
+  mutate(type = "cyano")
+
+phytodata <- boxplotdata2 %>% 
+  select(prop_delta_wl, combined_phyto_response, combined_phyto_response_binary, study_id) %>% 
+  filter(!is.na(prop_delta_wl)) %>% 
+  filter(!is.na(combined_phyto_response_binary)) %>% 
+  # filter(prop_delta_wl<0) %>% 
+  rename(response_binary = combined_phyto_response_binary, 
+         response = combined_phyto_response) %>% 
+  mutate(type = "phyto")
+# logregdata <- rbind(cyanoincreasedata, cyanodecreasedata, phytoincreasedata, phytodecreasedata)
+logregdata <- rbind(cyanodata, phytodata)
+#"#7A524B","#3C7F29","#8DBAE9"
+test <- logregdata %>% ggplot(aes(x = prop_delta_wl, y = response_binary, color = as.factor(type), shape = as.factor(type))) +
+  scale_color_manual(values = c("#88CCEE", "#117733"), name = "")+
+  scale_shape_manual(values = c(8, 20)) +
+  geom_point(size = 2) +
+  geom_smooth(method = "glm", 
+              method.args = list(family = "binomial"),
+              se = FALSE, linewidth = 3) + 
+  #geom_jitter()+
+ ylab("Phytoplankton and\n cyanobacterial\n response to\n changes in water level") + 
+  xlab("Proportion water level change") +   
+  theme_bw() +
+  theme(text = element_text(size = 12),
+        axis.text.x = element_text(hjust = 1, size = 12), 
+        axis.title.y=element_text(angle=0, vjust = .5))
+
+test
+
+ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/combinedlogregression.png", plot = test, height = 4, width = 8, units = "in")
+```
+
+
+
