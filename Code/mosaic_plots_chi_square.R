@@ -13,7 +13,7 @@ library(lubridate)
 library(ggmosaic)
 
 # get data
-dat <- read_csv("./Data/powell_litreview_edited2.csv") %>% # use edited_test_litreview.csv instead?
+dat <- read_csv("./Data/litreview_official.csv") %>% # use edited_test_litreview.csv instead?
   filter(Include == "Yes") %>% #only include studies that we've decided to include following our criteria in Covidence
   mutate(chla_original = `Mean chlorophyll concentration (units)`) %>%
   separate(`Mean chlorophyll concentration (units)`, sep = " |-|m", into = c("chla_ugL", "unit")) %>% #get chl-a values
@@ -73,7 +73,7 @@ dat2 <- bind_rows(dat_no_fluctuation_studies, fluctuation_studies_keep_increase)
          increase_phyto = factor(increase_phyto, levels = c("yes","no","not reported")),
          increase_cyano = factor(increase_cyano, levels = c("yes","no","not reported"))) 
 
-write.csv(dat2,"./Data/mosaic_plot_data_for_Bridget.csv", row.names = FALSE)
+write.csv(dat2,"./Data/mosaic_plot_data_08JUL24.csv", row.names = FALSE)
 
 dat_phyto <- dat2 %>%
   filter(!increase_phyto == "not reported") %>%
@@ -91,7 +91,7 @@ mosaic_phyto <- ggplot(data = dat_phyto) +
                                "no:increase" = "WL increase: \n no phyto increase","yes:increase" = "WL increase: \n phyto increase"),
                       expand = c(0,0))+
   scale_y_productlist(expand = c(0,0))+
-  scale_fill_manual(values = c("#88CCEE","#117733"))+
+  scale_fill_manual(values = c("#117733","#88CCEE"))+
   theme_classic()+
   theme(axis.line.x.bottom=element_line(color="white"),
         axis.line.y.left=element_line(color="white"))+
@@ -121,7 +121,7 @@ mosaic_cyano <- ggplot(data = dat_cyano) +
                                "no:increase" = "WL increase: \n no cyano increase","yes:increase" = "WL increase: \n cyano increase"),
                       expand = c(0,0))+
   scale_y_productlist(expand = c(0,0))+
-  scale_fill_manual(values = c("#88CCEE","#117733"))+
+  scale_fill_manual(values = c("#117733","#88CCEE"))+
   theme_classic()+
   theme(axis.line.x.bottom=element_line(color="white"),
         axis.line.y.left=element_line(color="white"))+
