@@ -82,7 +82,7 @@ dat_phyto <- dat2 %>%
 
 mosaic_phyto <- ggplot(data = dat_phyto) +
   geom_mosaic(aes(x=product(increase_phyto, trophic_status_mosaic, increase_decrease_mosaic), fill = increase_decrease_mosaic, alpha = increase_phyto)) + 
-  scale_alpha_manual(values =c(.2,.9)) +
+  scale_alpha_manual(values =c(.3,.9)) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = .5)) + 
   labs(y="Trophic status", x="Water level increase or decrease", title = "Phytoplankton response to water level fluctuation",
        fill = "Did water level increase or decrease?",
@@ -91,6 +91,7 @@ mosaic_phyto <- ggplot(data = dat_phyto) +
                                "no:increase" = "WL increase: \n no phyto increase","yes:increase" = "WL increase: \n phyto increase"),
                       expand = c(0,0))+
   scale_y_productlist(expand = c(0,0))+
+  scale_fill_manual(values = c("#88CCEE","#117733"))+
   theme_classic()+
   theme(axis.line.x.bottom=element_line(color="white"),
         axis.line.y.left=element_line(color="white"))+
@@ -112,7 +113,7 @@ dat_cyano <- dat2 %>%
 
 mosaic_cyano <- ggplot(data = dat_cyano) +
   geom_mosaic(aes(x=product(increase_cyano, trophic_status_mosaic, increase_decrease_mosaic), fill = increase_decrease_mosaic, alpha = increase_cyano)) + 
-  scale_alpha_manual(values =c(.2,.9)) +
+  scale_alpha_manual(values =c(.3,.9)) +
   labs(y="Trophic status", x="", title = "Cyanobacteria response to water level fluctuation",
        fill = "Did water level increase or decrease?",
        alpha = "Did cyanobacteria increase?")+
@@ -120,6 +121,7 @@ mosaic_cyano <- ggplot(data = dat_cyano) +
                                "no:increase" = "WL increase: \n no cyano increase","yes:increase" = "WL increase: \n cyano increase"),
                       expand = c(0,0))+
   scale_y_productlist(expand = c(0,0))+
+  scale_fill_manual(values = c("#88CCEE","#117733"))+
   theme_classic()+
   theme(axis.line.x.bottom=element_line(color="white"),
         axis.line.y.left=element_line(color="white"))+
@@ -174,6 +176,7 @@ Xsq$p.value
 # Question 2: are there differences in the likelihood of phytoplankton to increase
 # or decrease given an increase in water level?
 M_increase <- M[,1]
+M_increase
 (Xsq <- chisq.test(M_increase))  # Prints test summary
 Xsq$observed   # observed counts (same as M)
 Xsq$expected   # expected counts under the null
@@ -184,6 +187,7 @@ Xsq$p.value
 # Question 3: are there differences in the likelihood of phytoplankton to increase
 # or decrease given a decrease in water level?
 M_decrease <- M[,2]
+M_decrease
 (Xsq <- chisq.test(M_decrease))  # Prints test summary
 Xsq$observed   # observed counts (same as M)
 Xsq$expected   # expected counts under the null
@@ -227,6 +231,7 @@ Xsq$p.value
 # Question 2: are there differences in the likelihood of cyanobacteria to increase
 # or decrease given an increase in water level?
 M_increase <- M[,1]
+M_increase
 (Xsq <- chisq.test(M_increase))  # Prints test summary
 Xsq$observed   # observed counts (same as M)
 Xsq$expected   # expected counts under the null
@@ -237,6 +242,7 @@ Xsq$p.value
 # Question 3: are there differences in the likelihood of cyanobacteria to increase
 # or decrease given a decrease in water level?
 M_decrease <- M[,2]
+M_decrease
 (Xsq <- chisq.test(M_decrease))  # Prints test summary
 Xsq$observed   # observed counts (same as M)
 Xsq$expected   # expected counts under the null
