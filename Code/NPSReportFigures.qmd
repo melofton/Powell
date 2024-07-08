@@ -4,13 +4,10 @@ format: html
 editor: visual
 ---
 
-Colors for plots: 
-1 color: #88CCEE 
-2 colors: #88CCEE, #117733 
-3+ colors: these 2, plus any below #88CCEE, #117733
+Colors for plots: 1 color: #88CCEE 2 colors: #88CCEE, #117733 3+ colors: these 2, plus any below #88CCEE, #117733
 
 ```{r}
-scale_color_manual(values = c("#88CCEE","#44AA99","#117733", "#999933", "#DDCC77", "#CC6677", "#AA4499", "#882255", "#332288"))
+#scale_color_manual(values = c("#88CCEE","#44AA99","#117733", "#999933", "#DDCC77", "#CC6677", "#AA4499", "#882255", "#332288"))
 ```
 
 ```{r libraries}
@@ -162,11 +159,11 @@ na_bin <- litdata_na %>%
                                 ifelse(cyano_response_wl_decrease == "decrease", "Decrease", 
                                 ifelse(cyano_response_wl_decrease == "increase", "Increase", 
                                ifelse(cyano_response_wl_decrease == "shift", "Shift to \n Cyanobacteria \n dominated\n community", NA))))) %>% 
-    mutate(phyto_response_wl_up = ifelse(phyto_response_wl_increase == "not significant", "Not significant", 
+    mutate(phyto_response_wl_up = ifelse(phyto_response_wl_increase == "not significant", " Not significant", 
                                 ifelse(phyto_response_wl_increase == "decrease", " Decrease", 
                                 ifelse(phyto_response_wl_increase == "increase", " Increase", 
-                               ifelse(phyto_response_wl_increase == "shift", "Shift",
-                              ifelse(phyto_response_wl_increase == "other", "Other", NA)))))) %>% 
+                               ifelse(phyto_response_wl_increase == "shift", " Shift",
+                              ifelse(phyto_response_wl_increase == "mixed response", " Other", NA)))))) %>% 
     mutate(phyto_response_wl_down = ifelse(phyto_response_wl_decrease == "not significant", "Not significant", 
                                 ifelse(phyto_response_wl_decrease == "decrease", "Decrease", 
                                 ifelse(phyto_response_wl_decrease == "increase", "Increase", 
@@ -192,7 +189,7 @@ phyto_decreasewl <- na_bin %>%
 phyto_increasewl <- na_bin %>% 
   subset(!is.na(phyto_response_wl_up)) %>%
   #select(!is.na(binary_expand$phyto_response_wl_decrease)) %>% 
-  ggplot(aes(x=phyto_response_wl_up)) + 
+  ggplot(aes(x=factor(phyto_response_wl_up, c(" Increase", " Decrease", " Not significant", " Other")))) + 
   geom_bar(fill = "#117733") + 
   xlab("Phytoplankton response to water level increase")+
   ylab("Number of waterbodies") +
@@ -213,6 +210,7 @@ cyano_decreasewl <- na_bin %>%
     theme_bw() +
   theme(text = element_text(size = 20),
         axis.text.x = element_text(angle = 0, size = 16))
+
 
 cyano_increasewl <- na_bin %>% 
   subset(!is.na(cyano_response_wl_up)) %>%
@@ -428,6 +426,3 @@ test
 
 ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/combinedlogregression.png", plot = test, height = 4, width = 8, units = "in")
 ```
-
-
-

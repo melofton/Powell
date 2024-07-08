@@ -23,19 +23,19 @@ litdata1 <- litdata %>%
   mutate(chla_ugL = ifelse(chla_ugL == "not",NA,chla_ugL)) %>%
   mutate(chla_ugL = ifelse(chla_ugL == "",NA,chla_ugL)) %>%
   mutate(chla_ugL = as.numeric(chla_ugL)) %>% 
-  mutate(trophic_status_3 = ifelse(trophic_status == "not reported" & chla_ugL <= 2.6, "oligotrophic", 
+  mutate(trophic_status_chla = ifelse(trophic_status == "not reported" & chla_ugL <= 2.6, "oligotrophic", 
                                    ifelse(trophic_status == "not reported" & chla_ugL >2.6 & chla_ugL <=7.3, "mesotrophic", 
                                           ifelse(trophic_status == "not reported" & chla_ugL >7.3 & chla_ugL <= 56, "eutrophic", 
                                                  ifelse(trophic_status == "not reported" & chla_ugL >56, "hypertrophic",
                                                         ifelse(trophic_status == "not reported" & is.na(chla_ugL), trophic_status, trophic_status)))))) %>% 
-  mutate(trophic_status_new = ifelse(tp_ug_l <= 12, "oligotrophic", 
+  mutate(trophic_status_tp = ifelse(tp_ug_l <= 12, "oligotrophic", 
                                      ifelse(tp_ug_l >=12 & tp_ug_l <=24, "mesotrophic", 
                                             ifelse(tp_ug_l >24 & tp_ug_l <= 70, "eutrophic", 
                                                    ifelse(tp_ug_l >70, "hypertrophic",
                                                           ifelse(is.na(tp_ug_l), trophic_status, NA)))))) %>%  
-  mutate(trophic_status_combined = ifelse(trophic_status == "not reported" & !is.na(trophic_status_new), trophic_status_new,
-                                          ifelse(trophic_status == "not reported" & !is.na(trophic_status_3), trophic_status_3, trophic_status))) %>% 
-  select(-c(trophic_status_new, trophic_status_3, trophic_status, unit))
+  mutate(trophic_status_combined = ifelse(trophic_status == "not reported" & !is.na(trophic_status_tp), trophic_status_tp,
+                                          ifelse(trophic_status == "not reported" & !is.na(trophic_status_chla), trophic_status_chla, trophic_status))) #%>% 
+  #select(-c(trophic_status_new, trophic_status_3, trophic_status, unit))
 
 #overwrite a few instances for increase/decrease in phytoplankton or cyanobacteria
 litdata2 <- litdata1 %>% 
