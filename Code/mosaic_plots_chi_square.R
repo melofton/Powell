@@ -13,25 +13,9 @@ library(lubridate)
 library(ggmosaic)
 
 # get data
-dat <- read_csv("./Data/litreview_official.csv") %>% # use edited_test_litreview.csv instead?
-  filter(Include == "Yes") %>% #only include studies that we've decided to include following our criteria in Covidence
-  mutate(chla_original = `Mean chlorophyll concentration (units)`) %>%
-  separate(`Mean chlorophyll concentration (units)`, sep = " |-|m", into = c("chla_ugL", "unit")) %>% #get chl-a values
-  mutate(chla_ugL = ifelse(chla_ugL == "not",NA,
-                           ifelse(chla_ugL == 2, 2000, as.numeric(chla_ugL)))) %>% #fix a few individual values of chl-a to be NA if not reported or convert from mgL to ugL
-  select(cov_num, trophic_status, tp_ugL, phyto_response_wl_decrease, phyto_response_wl_increase,
+dat <- read_csv("./Data/litdata_cleaned.csv") %>% # use edited_test_litreview.csv instead?
+  select(cov_num, trophic_status_combined, tp_ug_l, phyto_response_wl_decrease, phyto_response_wl_increase,
          cyano_response_wl_decrease, cyano_response_wl_increase, chla_ugL) %>%
-  mutate(trophic_status = ifelse(is.na(trophic_status),"not reported",trophic_status)) %>%
-  mutate(trophic_status = ifelse(trophic_status == "not reported" & tp_ugL <= 12, "oligotrophic", 
-                                     ifelse(trophic_status == "not reported" & tp_ugL >12 & tp_ugL <=24, "mesotrophic", 
-                                            ifelse(trophic_status == "not reported" & tp_ugL >24 & tp_ugL <= 70, "eutrophic", 
-                                                   ifelse(trophic_status == "not reported" & tp_ugL >70, "hypertrophic",
-                                                          ifelse(trophic_status == "not reported" & is.na(tp_ugL),trophic_status,trophic_status)))))) %>%
-  mutate(trophic_status = ifelse(trophic_status == "not reported" & chla_ugL <= 2.6, "oligotrophic", 
-                                 ifelse(trophic_status == "not reported" & chla_ugL >2.6 & chla_ugL <=7.3, "mesotrophic", 
-                                        ifelse(trophic_status == "not reported" & chla_ugL >7.3 & chla_ugL <= 56, "eutrophic", 
-                                               ifelse(trophic_status == "not reported" & chla_ugL >56, "hypertrophic",
-                                                      ifelse(trophic_status == "not reported" & is.na(chla_ugL),trophic_status,trophic_status)))))) %>%
   filter(!(is.na(phyto_response_wl_decrease) & is.na(phyto_response_wl_increase) & is.na(cyano_response_wl_decrease) & is.na(cyano_response_wl_increase))) %>%
   mutate(increase_decrease_mosaic = ifelse(((!is.na(phyto_response_wl_decrease) | !is.na(cyano_response_wl_decrease)) & (!is.na(phyto_response_wl_increase) | !is.na(cyano_response_wl_increase))),"both",
                                            ifelse((!is.na(phyto_response_wl_decrease) | !is.na(cyano_response_wl_decrease)),"decrease",
@@ -58,8 +42,8 @@ dat2 <- bind_rows(dat_no_fluctuation_studies, fluctuation_studies_keep_increase)
          phyto_response_wl_increase = ifelse(is.na(phyto_response_wl_increase),"not reported",phyto_response_wl_increase),
          cyano_response_wl_decrease = ifelse(is.na(cyano_response_wl_decrease),"not reported",cyano_response_wl_decrease),
          cyano_response_wl_increase = ifelse(is.na(cyano_response_wl_increase),"not reported",cyano_response_wl_increase)) %>%
-  mutate(trophic_status_mosaic = ifelse((grepl("oligo",trophic_status) | grepl("meso",trophic_status)),"oligo-mesotrophic",
-                                        ifelse(grepl("eu", trophic_status),"eu-hypereutrophic","not reported")),
+  mutate(trophic_status_mosaic = ifelse((grepl("oligo",trophic_status_combined) | grepl("meso",trophic_status_combined)),"oligo-mesotrophic",
+                                        ifelse(grepl("eu", trophic_status_combined),"eu-hypereutrophic","not reported")),
          increase_phyto = ifelse((increase_decrease_mosaic == "increase" & phyto_response_wl_increase == "increase"),"yes",
                                  ifelse(increase_decrease_mosaic == "increase" & phyto_response_wl_increase == "not reported","not reported",
                                         ifelse(increase_decrease_mosaic == "decrease" & phyto_response_wl_decrease == "increase","yes",
@@ -250,3 +234,6 @@ Xsq$residuals  # Pearson residuals
 Xsq$stdres     # standardized residuals
 Xsq$p.value
 
+
+ggplot(data = dat, aes(x = trophic_status_combined))+
+  geom_bar(stat = "count")
