@@ -50,7 +50,7 @@ litdata_na %>%
 
 world <- ne_countries(scale = "medium", returnclass = "sf")
 
-my_countries <- c("Russia", "South Korea", "China", "Brazil", "Spain", "United States of America", "Burkina Faso", "Argentina", "Lebanon", "Vietnam", "Canada", "Israel", "Croatia", "Netherlands", "Estonia", "Italy", "Turkey", "Ethiopia")
+my_countries <- c("Russia", "South Korea", "China", "Brazil", "Spain", "United States of America", "Burkina Faso", "Argentina", "Lebanon", "Vietnam", "Canada", "Israel", "Croatia", "Netherlands", "Estonia", "Italy", "Turkey")
 
 new_world <- mutate(world, fill = ifelse(sovereignt %in% c(my_countries), "yes", "no"))
 
@@ -78,7 +78,7 @@ sitemap <- new_world %>% ggplot(fill = fill) +
         legend.position="none")
 sitemap
 
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/sitemap.jpg", plot = sitemap, height = 7, width = 8, units = "in")
+ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/sitemap.jpg", plot = sitemap, height = 4, width = 6.5, units = "in")
 ```
 
 ```{r bar plots}
@@ -120,7 +120,7 @@ mgmtconcerns <- concerns %>%
         axis.text.x = element_text(angle = 45, hjust = 1, size = 16))
 
 mgmtconcerns
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/managementconcerns.png", plot = mgmtconcerns, height = 6, width = 10, units = "in")
+ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/managementconcerns.png", plot = mgmtconcerns, height = 4, width = 6.5, units = "in")
 
 #management strategies
 mgmtstrat <- c("strat_drawdown", "strat_episw", "strat_flushing", "strat_refill")
@@ -407,6 +407,7 @@ phytodata <- boxplotdata2 %>%
 # logregdata <- rbind(cyanoincreasedata, cyanodecreasedata, phytoincreasedata, phytodecreasedata)
 logregdata <- rbind(cyanodata, phytodata)
 #"#7A524B","#3C7F29","#8DBAE9"
+
 test <- logregdata %>% ggplot(aes(x = prop_delta_wl, y = response_binary, color = as.factor(type), shape = as.factor(type))) +
   scale_color_manual(values = c("#88CCEE", "#117733"), name = "")+
   scale_shape_manual(values = c(8, 20)) +
@@ -425,4 +426,18 @@ test <- logregdata %>% ggplot(aes(x = prop_delta_wl, y = response_binary, color 
 test
 
 ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/combinedlogregression.png", plot = test, height = 4, width = 8, units = "in")
+```
+
+```{r logistic reg stats}
+logregform <-  glm(formula=response_binary ~ prop_delta_wl, data=logregdata, family=binomial)
+summary(logregform)
+
+logregdata_phyto <- logregdata %>% subset(type == "phyto")
+logregdata_cyano <- logregdata %>% subset(type == "cyano")
+
+logregform_phyto <-  glm(formula=response_binary ~ prop_delta_wl, data=logregdata_phyto, family=binomial)
+summary(logregform_phyto)
+
+logregform_cyano <-  glm(formula=response_binary ~ prop_delta_wl, data=logregdata_cyano, family=binomial)
+summary(logregform_cyano)
 ```
