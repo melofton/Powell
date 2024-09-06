@@ -9,6 +9,36 @@ library(tidyverse)
 library(lubridate)
 library(rlang)
 
+## Table 2 ----
+# read in data
+dat <- read_csv("./Data/litdata_cleaned.csv") %>%
+  select(cov_num, res_name, country, lat_dd, long_dd, study_id) %>%
+  mutate(lat_dd = round(as.numeric(lat_dd),2),
+         long_dd = round(as.numeric(long_dd),2)) %>%
+  mutate(lat_dd = ifelse(is.na(lat_dd),"NR",lat_dd),
+         long_dd = ifelse(is.na(long_dd),"NR",long_dd))
+
+dat2 <- read_csv("./Data/mosaic_plot_data_05SEP24.csv")
+
+dat3 <- left_join(dat2, dat, by = c("cov_num","res_name")) %>%
+  select(res_name, country, lat_dd, long_dd, trophic_status_mosaic, increase_decrease_mosaic, 
+         increase_phyto, increase_cyano, study_id) %>%
+  rename(`Lake or Reservoir Name` = res_name,
+         Country = country,
+         `Latitude (decimal degrees)` = lat_dd,
+         `Longitude (decimal degrees)` = long_dd,
+         `Trophic Status` = trophic_status_mosaic,
+         `Did water level increase or decrease?` = increase_decrease_mosaic,
+         `Did phytoplankton increase?` = increase_phyto,
+         `Did cyanobacteria increase?` = increase_cyano,
+         `Study ID` = study_id) %>%
+  arrange(`Lake or Reservoir Name`)
+write.csv(dat3, "./Data/Table2_05SEP24.csv", row.names = FALSE)
+
+tab <- read_csv("./Data/Table2.csv")
+
+
+## Previous Table 2 (now in supplement)
 # read in data
 dat <- read_csv("./Data/Table2Data.csv") %>%
   select("Covidence #","Study ID","Aim of study","How many waterbodies are in this study?",

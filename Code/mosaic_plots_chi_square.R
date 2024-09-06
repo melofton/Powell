@@ -10,11 +10,10 @@
 # load packages
 library(tidyverse)
 library(lubridate)
-library(ggmosaic)
 
 # get data
-dat <- read_csv("./Data/litdata_cleaned.csv") %>% # use edited_test_litreview.csv instead?
-  select(cov_num, trophic_status_combined, tp_ug_l, phyto_response_wl_decrease, phyto_response_wl_increase,
+dat <- read_csv("./Data/litdata_cleaned.csv") %>% 
+  select(cov_num, res_name, trophic_status_combined, tp_ug_l, phyto_response_wl_decrease, phyto_response_wl_increase,
          cyano_response_wl_decrease, cyano_response_wl_increase, chla_ugL) %>%
   filter(!(is.na(phyto_response_wl_decrease) & is.na(phyto_response_wl_increase) & is.na(cyano_response_wl_decrease) & is.na(cyano_response_wl_increase))) %>%
   mutate(increase_decrease_mosaic = ifelse(((!is.na(phyto_response_wl_decrease) | !is.na(cyano_response_wl_decrease)) & (!is.na(phyto_response_wl_increase) | !is.na(cyano_response_wl_increase))),"both",
@@ -52,74 +51,105 @@ dat2 <- bind_rows(dat_no_fluctuation_studies, fluctuation_studies_keep_increase)
                                  ifelse(increase_decrease_mosaic == "increase" & cyano_response_wl_increase == "not reported","not reported",
                                         ifelse(increase_decrease_mosaic == "decrease" & cyano_response_wl_decrease == "increase","yes",
                                                ifelse(increase_decrease_mosaic == "decrease" & cyano_response_wl_decrease == "not reported","not reported","no"))))) %>%
-  select(cov_num, increase_decrease_mosaic, trophic_status_mosaic, increase_phyto, increase_cyano) %>%
+  select(cov_num, res_name, increase_decrease_mosaic, trophic_status_mosaic, increase_phyto, increase_cyano) %>%
   mutate(trophic_status_mosaic = factor(trophic_status_mosaic, levels = c("not reported","eu-hypereutrophic","oligo-mesotrophic")),
          increase_phyto = factor(increase_phyto, levels = c("yes","no","not reported")),
          increase_cyano = factor(increase_cyano, levels = c("yes","no","not reported"))) 
 
-write.csv(dat2,"./Data/mosaic_plot_data_08JUL24.csv", row.names = FALSE)
+write.csv(dat2,"./Data/mosaic_plot_data_05SEP24.csv", row.names = FALSE)
 
 dat_phyto <- dat2 %>%
   filter(!increase_phyto == "not reported") %>%
   select(trophic_status_mosaic, increase_decrease_mosaic, increase_phyto) %>%
-  mutate(increase_phyto = factor(increase_phyto, levels = c("no","yes")))
+  mutate(x_axis_barplot = paste(increase_decrease_mosaic, increase_phyto, sep = "_")) %>%
+  group_by(x_axis_barplot, trophic_status_mosaic) %>%
+  summarise(count = n()) |>
+  mutate(response.count = sum(count),
+         ts.prop = count/sum(count)) |>
+  ungroup() %>%
+  mutate(response.prop = response.count/sum(count)) %>%
+  ungroup() %>%
+  separate(x_axis_barplot,c("increase_decrease_mosaic","increase_phyto"), remove = FALSE) %>%
+  mutate(trophic_status_mosaic = factor(trophic_status_mosaic, levels = c("oligo-mesotrophic","eu-hypereutrophic","not reported")))
 
-mosaic_phyto <- ggplot(data = dat_phyto) +
-  geom_mosaic(aes(x=product(increase_phyto, trophic_status_mosaic, increase_decrease_mosaic), fill = increase_decrease_mosaic, alpha = increase_phyto)) + 
-  scale_alpha_manual(values =c(.3,.9)) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = .5)) + 
-  labs(y="Trophic status", x="Water level increase or decrease", title = "Phytoplankton response to water level fluctuation",
-       fill = "Did water level increase or decrease?",
-       alpha = "Did phytoplankton increase?")+
-  scale_x_productlist(labels=c("no:decrease" = "WL decrease: \n no phyto increase","yes:decrease" = "WL decrease: \n phyto increase",
-                               "no:increase" = "WL increase: \n no phyto increase","yes:increase" = "WL increase: \n phyto increase"),
-                      expand = c(0,0))+
-  scale_y_productlist(expand = c(0,0))+
-  scale_fill_manual(values = c("#117733","#88CCEE"))+
+# New facet label names for water level/response variable
+wl.labs <- c("WL decrease","WL increase")
+names(wl.labs) <- unique(dat_phyto$increase_decrease_mosaic)
+response.labs <- c("no phyto \n increase", "phyto \n increase", "no phyto \n increase", "phyto \n increase") 
+
+# Calculate bar positions
+w <- c(unique(dat_phyto$response.prop)[1],unique(dat_phyto$response.prop))
+pos <- data.frame(pos = 0.5 * (cumsum(w) + cumsum(c(0, w[-length(w)]))),
+                  x_axis_barplot = unique(dat_phyto$x_axis_barplot))
+
+dat_phyto <- left_join(dat_phyto, pos, by = "x_axis_barplot")
+
+
+barplot_phyto <- ggplot(data = dat_phyto, aes(x = pos, y = ts.prop, width = response.prop, fill = trophic_status_mosaic)) +
+  geom_bar(stat = "identity", colour = "black") +
+  scale_x_continuous(breaks = unique(dat_phyto$pos), labels = response.labs, expand = c(0,0))+
+  scale_y_continuous(expand = c(0,0))+
+  geom_text(aes(label = paste0("n=",count)), position = position_stack(vjust = 0.5))+ # if labels are desired
+  facet_wrap(~increase_decrease_mosaic, scales = "free_x",labeller = labeller(increase_decrease_mosaic = wl.labs)) +
+  scale_fill_manual(values = c("#88CCEE","#117733","gray")) +
   theme_classic()+
-  theme(axis.line.x.bottom=element_line(color="white"),
-        axis.line.y.left=element_line(color="white"))+
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+  theme(axis.ticks.y = element_blank(),
+        axis.text.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.title.x = element_blank())+  # if no spacing preferred between bars
+  labs(fill = "Trophic status",title = "Phytoplankton response to water level fluctuation")
+  
+barplot_phyto
 
-mosaic_phyto
-
-plot_dat_phyto <- ggplot_build(mosaic_phyto)$data %>%
-  as.data.frame %>%
-  select(label, .n)
-
-ggsave(mosaic_phyto, filename = "./Plots/mosaic_phyto.png",dev = "png",width = 8, height = 4,
+ggsave(barplot_phyto, filename = "./Plots/barplot_phyto.png",dev = "png",width = 7, height = 4,
        units = "in")
+
+# cyanobacteria plot
 
 dat_cyano <- dat2 %>%
   filter(!increase_cyano == "not reported") %>%
   select(trophic_status_mosaic, increase_decrease_mosaic, increase_cyano) %>%
-  mutate(increase_cyano = factor(increase_cyano, levels = c("no","yes")))
+  mutate(x_axis_barplot = paste(increase_decrease_mosaic, increase_cyano, sep = "_")) %>%
+  group_by(x_axis_barplot, trophic_status_mosaic) %>%
+  summarise(count = n()) |>
+  mutate(response.count = sum(count),
+         ts.prop = count/sum(count)) |>
+  ungroup() %>%
+  mutate(response.prop = response.count/sum(count)) %>%
+  ungroup() %>%
+  separate(x_axis_barplot,c("increase_decrease_mosaic","increase_phyto"), remove = FALSE) %>%
+  mutate(trophic_status_mosaic = factor(trophic_status_mosaic, levels = c("oligo-mesotrophic","eu-hypereutrophic","not reported")))
 
-mosaic_cyano <- ggplot(data = dat_cyano) +
-  geom_mosaic(aes(x=product(increase_cyano, trophic_status_mosaic, increase_decrease_mosaic), fill = increase_decrease_mosaic, alpha = increase_cyano)) + 
-  scale_alpha_manual(values =c(.3,.9)) +
-  labs(y="Trophic status", x="", title = "Cyanobacteria response to water level fluctuation",
-       fill = "Did water level increase or decrease?",
-       alpha = "Did cyanobacteria increase?")+
-  scale_x_productlist(labels=c("no:decrease" = "WL decrease: \n no cyano increase","yes:decrease" = "WL decrease: \n cyano increase",
-                               "no:increase" = "WL increase: \n no cyano increase","yes:increase" = "WL increase: \n cyano increase"),
-                      expand = c(0,0))+
-  scale_y_productlist(expand = c(0,0))+
-  scale_fill_manual(values = c("#117733","#88CCEE"))+
+# New facet label names for water level/response variable
+wl.labs <- c("WL decrease","WL increase")
+names(wl.labs) <- unique(dat_cyano$increase_decrease_mosaic)
+response.labs <- c("no cyano \n increase", "cyano \n increase", "no cyano \n increase", "cyano \n increase") 
+
+# Calculate bar positions
+w <- c(unique(dat_cyano$response.prop),unique(dat_cyano$response.prop)[3])
+pos <- data.frame(pos = 0.5 * (cumsum(w) + cumsum(c(0, w[-length(w)]))),
+                  x_axis_barplot = unique(dat_cyano$x_axis_barplot))
+
+dat_cyano <- left_join(dat_cyano, pos, by = "x_axis_barplot")
+
+
+barplot_cyano <- ggplot(data = dat_cyano, aes(x = pos, y = ts.prop, width = response.prop, fill = trophic_status_mosaic)) +
+  geom_bar(stat = "identity", colour = "black") +
+  scale_x_continuous(breaks = unique(dat_cyano$pos), labels = response.labs, expand = c(0,0))+
+  scale_y_continuous(expand = c(0,0))+
+  geom_text(aes(label = paste0("n=",count)), position = position_stack(vjust = 0.5))+ # if labels are desired
+  facet_wrap(~increase_decrease_mosaic, scales = "free_x",labeller = labeller(increase_decrease_mosaic = wl.labs)) +
+  scale_fill_manual(values = c("#88CCEE","#117733","gray")) +
   theme_classic()+
-  theme(axis.line.x.bottom=element_line(color="white"),
-        axis.line.y.left=element_line(color="white"))+
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))+
-  guides(fill = guide_legend(order = 1),
-         alpha  = guide_legend(order = 2))
+  theme(axis.ticks.y = element_blank(),
+        axis.text.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.title.x = element_blank())+  # if no spacing preferred between bars
+  labs(fill = "Trophic status",title = "Cyanobacteria response to water level fluctuation")
 
-mosaic_cyano
+barplot_cyano
 
-plot_dat_cyano <- ggplot_build(mosaic_cyano)$data %>%
-  as.data.frame %>%
-  select(label, .n)
-
-ggsave(mosaic_cyano, filename = "./Plots/mosaic_cyano.png",dev = "png",width = 8, height = 4,
+ggsave(barplot_cyano, filename = "./Plots/barplot_cyano.png",dev = "png",width = 7, height = 4,
        units = "in")
 
 ## From Agresti(2007) p.39
