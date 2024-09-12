@@ -35,7 +35,7 @@ dat3 <- left_join(dat2, dat, by = c("cov_num","res_name")) %>%
   arrange(`Lake or Reservoir Name`)
 write.csv(dat3, "./Data/Table2_05SEP24.csv", row.names = FALSE)
 
-tab <- read_csv("./Data/Table2.csv")
+tab <- read_csv("./Data/Table2_05SEP24.csv")
 
 
 ## Previous Table 2 (now in supplement)

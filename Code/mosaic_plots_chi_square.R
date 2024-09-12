@@ -41,8 +41,8 @@ dat2 <- bind_rows(dat_no_fluctuation_studies, fluctuation_studies_keep_increase)
          phyto_response_wl_increase = ifelse(is.na(phyto_response_wl_increase),"not reported",phyto_response_wl_increase),
          cyano_response_wl_decrease = ifelse(is.na(cyano_response_wl_decrease),"not reported",cyano_response_wl_decrease),
          cyano_response_wl_increase = ifelse(is.na(cyano_response_wl_increase),"not reported",cyano_response_wl_increase)) %>%
-  mutate(trophic_status_mosaic = ifelse((grepl("oligo",trophic_status_combined) | grepl("meso",trophic_status_combined)),"oligo-mesotrophic",
-                                        ifelse(grepl("eu", trophic_status_combined),"eu-hypereutrophic","not reported")),
+  mutate(trophic_status_mosaic = ifelse((grepl("oligo",trophic_status_combined) | grepl("meso",trophic_status_combined)),"oligo/mesotrophic",
+                                        ifelse(grepl("eu", trophic_status_combined),"eu/hypereutrophic","not reported")),
          increase_phyto = ifelse((increase_decrease_mosaic == "increase" & phyto_response_wl_increase == "increase"),"yes",
                                  ifelse(increase_decrease_mosaic == "increase" & phyto_response_wl_increase == "not reported","not reported",
                                         ifelse(increase_decrease_mosaic == "decrease" & phyto_response_wl_decrease == "increase","yes",
@@ -52,11 +52,11 @@ dat2 <- bind_rows(dat_no_fluctuation_studies, fluctuation_studies_keep_increase)
                                         ifelse(increase_decrease_mosaic == "decrease" & cyano_response_wl_decrease == "increase","yes",
                                                ifelse(increase_decrease_mosaic == "decrease" & cyano_response_wl_decrease == "not reported","not reported","no"))))) %>%
   select(cov_num, res_name, increase_decrease_mosaic, trophic_status_mosaic, increase_phyto, increase_cyano) %>%
-  mutate(trophic_status_mosaic = factor(trophic_status_mosaic, levels = c("not reported","eu-hypereutrophic","oligo-mesotrophic")),
+  mutate(trophic_status_mosaic = factor(trophic_status_mosaic, levels = c("not reported","eu/hypereutrophic","oligo/mesotrophic")),
          increase_phyto = factor(increase_phyto, levels = c("yes","no","not reported")),
          increase_cyano = factor(increase_cyano, levels = c("yes","no","not reported"))) 
 
-write.csv(dat2,"./Data/mosaic_plot_data_05SEP24.csv", row.names = FALSE)
+write.csv(dat2,"./Data/mosaic_plot_data_12SEP24.csv", row.names = FALSE)
 
 dat_phyto <- dat2 %>%
   filter(!increase_phyto == "not reported") %>%
@@ -70,7 +70,7 @@ dat_phyto <- dat2 %>%
   mutate(response.prop = response.count/sum(count)) %>%
   ungroup() %>%
   separate(x_axis_barplot,c("increase_decrease_mosaic","increase_phyto"), remove = FALSE) %>%
-  mutate(trophic_status_mosaic = factor(trophic_status_mosaic, levels = c("oligo-mesotrophic","eu-hypereutrophic","not reported")))
+  mutate(trophic_status_mosaic = factor(trophic_status_mosaic, levels = c("oligo/mesotrophic","eu/hypereutrophic","not reported")))
 
 # New facet label names for water level/response variable
 wl.labs <- c("WL decrease","WL increase")
@@ -91,7 +91,7 @@ barplot_phyto <- ggplot(data = dat_phyto, aes(x = pos, y = ts.prop, width = resp
   scale_y_continuous(expand = c(0,0))+
   geom_text(aes(label = paste0("n=",count)), position = position_stack(vjust = 0.5))+ # if labels are desired
   facet_wrap(~increase_decrease_mosaic, scales = "free_x",labeller = labeller(increase_decrease_mosaic = wl.labs)) +
-  scale_fill_manual(values = c("#88CCEE","#117733","gray")) +
+  scale_fill_manual(values = c("#88CCEE","#117733","gray90")) +
   theme_classic()+
   theme(axis.ticks.y = element_blank(),
         axis.text.y = element_blank(),
@@ -118,7 +118,7 @@ dat_cyano <- dat2 %>%
   mutate(response.prop = response.count/sum(count)) %>%
   ungroup() %>%
   separate(x_axis_barplot,c("increase_decrease_mosaic","increase_phyto"), remove = FALSE) %>%
-  mutate(trophic_status_mosaic = factor(trophic_status_mosaic, levels = c("oligo-mesotrophic","eu-hypereutrophic","not reported")))
+  mutate(trophic_status_mosaic = factor(trophic_status_mosaic, levels = c("oligo/mesotrophic","eu/hypereutrophic","not reported")))
 
 # New facet label names for water level/response variable
 wl.labs <- c("WL decrease","WL increase")
@@ -139,7 +139,7 @@ barplot_cyano <- ggplot(data = dat_cyano, aes(x = pos, y = ts.prop, width = resp
   scale_y_continuous(expand = c(0,0))+
   geom_text(aes(label = paste0("n=",count)), position = position_stack(vjust = 0.5))+ # if labels are desired
   facet_wrap(~increase_decrease_mosaic, scales = "free_x",labeller = labeller(increase_decrease_mosaic = wl.labs)) +
-  scale_fill_manual(values = c("#88CCEE","#117733","gray")) +
+  scale_fill_manual(values = c("#88CCEE","#117733","gray90")) +
   theme_classic()+
   theme(axis.ticks.y = element_blank(),
         axis.text.y = element_blank(),
