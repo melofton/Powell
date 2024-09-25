@@ -43,22 +43,44 @@ litdata_na <- litdata_na %>%
 #str(litdata_na)
 ```
 
+```{r adding ecoli to map}
+
+#Nauholzbach, Germany, 50.916864, 8.144386
+#Kalltalsperre reservoir, Germany, 50.644337, 6.307951
+#Wahnbachtalsperre, Germany, 50.816070, 7.303853
+#Camp Far West, CA, 39.052992, -121.311600
+#Englebright, CA, 39.247860, -121.268906
+#Lake Kaweah, CA, 36.405734, -118.980447
+#Lake Success, CA, 36.083058, -118.912487
+#New Hogan Lake Reservoir, CA, 38.157251, -120.799045
+#Woodward Reservoir, CA, 37.854409, -120.868778
+#Bagre, Burkina Faso, 11.501867, -0.595604
+
+new_lat <- c(50.916864, 50.644337, 50.816070, 39.052992, 39.247860, 36.405734, 36.083058, 38.157251, 37.854409, 11.501867)
+new_long <- c(8.144386, 6.307951, 7.303853, -121.311600, -121.268906, -118.980447, -118.912487, -120.799045, -120.868778, -0.595604)
+
+newlatlong <- data.frame(lat_dd = new_lat, long_dd = new_long)
+combmap <- bind_rows(litdata_na, newlatlong)
+```
+
+
 ```{r map}
-litdata_na %>% 
+litmap <- litdata_na %>% 
   subset(!is.na(long_dd)) %>% 
   mapview(xcol = "long_dd", ycol = "lat_dd", crs = 4269, grid = FALSE)
 
 world <- ne_countries(scale = "medium", returnclass = "sf")
 
-my_countries <- c("Russia", "South Korea", "China", "Brazil", "Spain", "United States of America", "Burkina Faso", "Argentina", "Lebanon", "Vietnam", "Canada", "Israel", "Croatia", "Netherlands", "Estonia", "Italy", "Turkey")
+my_countries <- c("Russia", "South Korea", "China", "Brazil", "Spain", "United States of America", "Burkina Faso", "Argentina", "Lebanon", "Vietnam", "Canada", "Israel", "Croatia", "Netherlands", "Estonia", "Italy", "Turkey", "Germany")
 
 new_world <- mutate(world, fill = ifelse(sovereignt %in% c(my_countries), "yes", "no"))
 
-litdata_map <- litdata_na %>% 
+litdata_map <- combmap %>% 
    mutate(mapvals = ifelse(((!is.na(phyto_response_wl_decrease)|!is.na(phyto_response_wl_increase)) & (!is.na(cyano_response_wl_decrease)|!is.na(cyano_response_wl_increase))), "Both",
                            ifelse(!is.na(phyto_response_wl_decrease)|!is.na(phyto_response_wl_increase), "Phytoplankton", 
                                  ifelse(!is.na(cyano_response_wl_decrease)|!is.na(cyano_response_wl_increase), "Cyanobacteria",
-                                        ifelse(study_id == "Song 2023"|study_id== "Huang 2023", "Selective withdrawal", "Pathogen")))))
+                                        ifelse(study_id == "Song 2023"|study_id== "Huang 2023", "Selective withdrawal", "Pathogen"))))) %>% 
+  mutate(mapvals = ifelse(is.na(mapvals), "Pathogen", mapvals))
 
 sitemap <- new_world %>% ggplot(fill = fill) +
     geom_sf(data = new_world, aes(fill = factor(fill))) +
@@ -68,12 +90,12 @@ sitemap <- new_world %>% ggplot(fill = fill) +
   scale_shape_manual(values = c(16, 16, 18, 16, 16), name = "Variable")+
   ylab("Latitude") + 
   xlab("Longitude") +
-    theme(text = element_text(size = 40),
-        axis.text.x = element_text(hjust = 1, size = 32), 
+    theme(text = element_text(size = 12),
+        axis.text.x = element_text(hjust = 1, size = 12), 
         axis.title.y=element_text(angle=0, vjust = .5))+
   theme_bw() +
-    theme(text = element_text(size = 40),
-        axis.text.x = element_text(hjust = 1, size = 32), 
+    theme(text = element_text(size = 12),
+        axis.text.x = element_text(hjust = 1, size = 12), 
         axis.title.y=element_text(angle=90, vjust = .5), 
         legend.position="none")
 sitemap
@@ -110,17 +132,18 @@ concerns <- litdata_na_expand %>%
             
 mgmtconcerns <- concerns %>% 
   ggplot(aes(x = concern, y = count, label = count)) + 
-  geom_col(position = "dodge", fill = "#88CCEE") +
+  # geom_col(position = "dodge", fill = "#88CCEE") +
+  geom_col(position = "dodge", fill = "#DDCC77") +
   geom_text(position = position_dodge(width = 0.9),
-            hjust = .5, vjust = 2, size = 8, color = "black") + 
+            hjust = .5, vjust = 1.2, size = 4, color = "black") + 
   xlab("Management Concern") +
   ylab("Number of Papers") +  
   theme_bw() +
-  theme(text = element_text(size = 20),
-        axis.text.x = element_text(angle = 45, hjust = 1, size = 16))
+  theme(text = element_text(size = 12),
+        axis.text.x = element_text(angle = 0, hjust = .5, size = 10))
 
 mgmtconcerns
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/managementconcerns.png", plot = mgmtconcerns, height = 4, width = 6.5, units = "in")
+ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/managementconcerns.png", plot = mgmtconcerns, height = 3, width = 6.5, units = "in")
 
 #management strategies
 mgmtstrat <- c("strat_drawdown", "strat_episw", "strat_flushing", "strat_refill")
@@ -135,17 +158,17 @@ mgmtstrat <- litdata_na_expand %>%
 
 mgmtstrats <- mgmtstrat %>% 
   ggplot(aes(x = factor(strategy, c("Drawdown", "Refill", "Flushing", "Selective\n withdrawal")), y = count, label = count)) + 
-    geom_col(position = "dodge", fill = "#88CCEE") +
+    geom_col(position = "dodge", fill = "#DDCC77") +
   geom_text(position = position_dodge(width = 0.9),
-            hjust = 0.5, vjust = 2, color = "black", size = 8) + 
+            hjust = 0.5, vjust = 1.2, color = "black", size = 4) + 
     xlab("Management Strategy") +
   ylab("Number of papers") + 
   theme_bw()+
-  theme(text = element_text(size = 28),
-        axis.text.x = element_text(angle = 0, size = 20))
+  theme(text = element_text(size = 12),
+        axis.text.x = element_text(angle = 0, size = 10))
 
 mgmtstrats
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/managementstrategies.png", plot = mgmtstrats, height = 6, width = 10.5, units = "in")
+ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/managementstrategies.png", plot = mgmtstrats, height = 3, width = 6.5, units = "in")
 ```
 
 ```{r bar plot responses}
@@ -153,12 +176,12 @@ na_bin <- litdata_na %>%
   mutate(cyano_response_wl_up = ifelse(cyano_response_wl_increase == "not significant", "Not significant",
                                 ifelse(cyano_response_wl_increase == "decrease", " Decrease", 
                                 ifelse(cyano_response_wl_increase == "increase", " Increase", 
-                               ifelse(cyano_response_wl_increase == "shift", "Shift to \n Cyanobacteria\n dominated\n community", 
+                               ifelse(cyano_response_wl_increase == "shift", "Shift to \n cyanobacteria", 
                               ifelse(cyano_response_wl_increase == "other", "Other", NA)))))) %>% 
     mutate(cyano_response_wl_down = ifelse(cyano_response_wl_decrease == "not significant", "Not significant", 
                                 ifelse(cyano_response_wl_decrease == "decrease", "Decrease", 
                                 ifelse(cyano_response_wl_decrease == "increase", "Increase", 
-                               ifelse(cyano_response_wl_decrease == "shift", "Shift to \n Cyanobacteria \n dominated\n community", NA))))) %>% 
+                               ifelse(cyano_response_wl_decrease == "shift", "Shift to \n cyanobacteria", NA))))) %>% 
     mutate(phyto_response_wl_up = ifelse(phyto_response_wl_increase == "not significant", " Not significant", 
                                 ifelse(phyto_response_wl_increase == "decrease", " Decrease", 
                                 ifelse(phyto_response_wl_increase == "increase", " Increase", 
@@ -167,7 +190,7 @@ na_bin <- litdata_na %>%
     mutate(phyto_response_wl_down = ifelse(phyto_response_wl_decrease == "not significant", "Not significant", 
                                 ifelse(phyto_response_wl_decrease == "decrease", "Decrease", 
                                 ifelse(phyto_response_wl_decrease == "increase", "Increase", 
-                               ifelse(phyto_response_wl_decrease == "shift", "Shift to\n Cyanobacteria\n dominated\n community", 
+                               ifelse(phyto_response_wl_decrease == "shift", "Shift to\n cyanobacteria", 
                                ifelse(phyto_response_wl_decrease == "other", "Other", NA))))))
   
 
@@ -175,14 +198,14 @@ phyto_decreasewl <- na_bin %>%
   subset(!is.na(phyto_response_wl_down)) %>% 
   #replace_with_na(replace = list(phyto_response_wl_decrease = c("NA"))) %>% 
   #select(!is.na(binary_expand$phyto_response_wl_decrease)) %>% 
-  ggplot(aes(x= factor(phyto_response_wl_down, c("Increase", "Decrease", "Not significant","Shift to\n Cyanobacteria\n dominated\n community", "Other")))) + 
+  ggplot(aes(x= factor(phyto_response_wl_down, c("Increase", "Decrease", "Not significant","Shift to\n cyanobacteria", "Other")))) + 
   geom_bar(fill = "#117733") +
   xlab("Phytoplankton response to water level decrease") +
   ylab("Number of waterbodies") +
-  geom_text(aes(label = ..count..), stat = "count", vjust = 1.5, size = 8, colour = "white") + 
+  geom_text(aes(label = ..count..), stat = "count", vjust = 1.2, size = 4, colour = "white") + 
     theme_bw() +
-  theme(text = element_text(size = 20),
-        axis.text.x = element_text(angle = 0, size = 16))
+  theme(text = element_text(size = 12),
+        axis.text.x = element_text(angle = 0, size = 10))
 
 #ggsave("phyto_decreasewl.jpg", plot = phyto_decreasewl, height = 8, width = 8, units = "in")
 
@@ -193,53 +216,53 @@ phyto_increasewl <- na_bin %>%
   geom_bar(fill = "#117733") + 
   xlab("Phytoplankton response to water level increase")+
   ylab("Number of waterbodies") +
-  geom_text(aes(label = ..count..), stat = "count", vjust = 1.5, size = 8, colour = "white") + 
+  geom_text(aes(label = ..count..), stat = "count", vjust = 1.2, size = 4, colour = "white") + 
     theme_bw() +
-  theme(text = element_text(size = 20),
-        axis.text.x = element_text(angle = 45, hjust = 1, size = 16))
+  theme(text = element_text(size = 12),
+        axis.text.x = element_text(angle = 0, hjust = 0.5, size = 10))
 
 cyano_decreasewl <- na_bin %>% 
   subset(!is.na(cyano_response_wl_down)) %>%
   #select(!is.na(binary_expand$phyto_response_wl_decrease)) %>% 
-  ggplot(aes(x=factor(cyano_response_wl_down, c("Increase", "Decrease", "Not significant", "Shift to \n Cyanobacteria \n dominated\n community")))) + 
+  ggplot(aes(x=factor(cyano_response_wl_down, c("Increase", "Decrease", "Not significant", "Shift to \n cyanobacteria")))) + 
   geom_bar(fill = "#88CCEE") +
   xlab("Cyanobacteria response to water level decrease") +
   #xlab("") +
   ylab("Number of waterbodies") +
-  geom_text(aes(label = ..count..), stat = "count", vjust = 1.5, size = 8, colour = "black") + 
+  geom_text(aes(label = ..count..), stat = "count", vjust = 1.2, size = 4, colour = "black") + 
     theme_bw() +
-  theme(text = element_text(size = 20),
-        axis.text.x = element_text(angle = 0, size = 16))
+  theme(text = element_text(size = 12),
+        axis.text.x = element_text(angle = 0, size = 10))
 
 
 cyano_increasewl <- na_bin %>% 
   subset(!is.na(cyano_response_wl_up)) %>%
   #select(!is.na(binary_expand$phyto_response_wl_decrease)) %>% 
-  ggplot(aes(x=cyano_response_wl_up)) + 
+  ggplot(aes(x=factor(cyano_response_wl_up, c(" Increase", " Decrease")))) + 
   geom_bar(fill = "#88CCEE") + 
   xlab("Cyanobacteria response to water level increase") + 
   ylab("Number of waterbodies") +
-  geom_text(aes(label = ..count..), stat = "count", vjust = 1.5, size = 8, colour = "black") + 
+  geom_text(aes(label = ..count..), stat = "count", vjust = 1.2, size = 4, colour = "black") + 
     theme_bw() +
-  theme(text = element_text(size = 20),
-        axis.text.x = element_text(angle = 45, hjust = 1, size = 16))
+  theme(text = element_text(size = 12),
+        axis.text.x = element_text(angle = 0, hjust = 0.5, size = 10))
 
 phyto_decreasewl
 phyto_increasewl
 cyano_decreasewl
 cyano_increasewl
 
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/phyto_decreasewl.jpg", plot = phyto_decreasewl, height = 5, width = 7, units = "in")
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/phyto_increasewl.jpg", plot = phyto_increasewl, height = 5, width = 7, units = "in")
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/cyano_decreasewl.jpg", plot = cyano_decreasewl, height = 5, width = 7, units = "in")
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/cyano_increasewl.jpg", plot = cyano_increasewl, height = 5, width = 7, units = "in")
+ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/phyto_decreasewl.jpg", plot = phyto_decreasewl, height = 3, width = 6.5, units = "in")
+ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/phyto_increasewl.jpg", plot = phyto_increasewl, height = 3, width = 6.5, units = "in")
+ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/cyano_decreasewl.jpg", plot = cyano_decreasewl, height = 3, width = 6.5, units = "in")
+ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/cyano_increasewl.jpg", plot = cyano_increasewl, height = 3, width = 6.5, units = "in")
 ```
 
 ```{r more bar plots}
 #trophic status
 
 trophic_status <- litdata_na %>% 
-  mutate(trophic_status_condensed = ifelse(trophic_status_combined == "hypertrophic", "Hypertrophic", 
+  mutate(trophic_status_condensed = ifelse(trophic_status_combined == "hypertrophic", "Hypereutrophic", 
                                            ifelse(trophic_status_combined == "meso-eutrophic"|trophic_status_combined == "eutrophic", "Eutrophic",
                                                   ifelse(trophic_status_combined == "mesotrophic"|trophic_status_combined =="oligo-mesotrophic", "Mesotrophic",
                                                          ifelse(trophic_status_combined == "oligotrophic", "Oligotrophic",
@@ -247,28 +270,28 @@ trophic_status <- litdata_na %>%
   replace_na(list(trophic_status_condensed ="Not reported")) %>% 
   #subset(!is.na(trophic_status_condensed)) %>%
   #select(!is.na(binary_expand$phyto_response_wl_decrease)) %>% 
-  ggplot(aes(x= factor(trophic_status_condensed, c("Oligotrophic", "Mesotrophic", "Eutrophic", "Hypertrophic", "Not reported")))) + 
- geom_bar(fill = "#88CCEE") + 
+  ggplot(aes(x= factor(trophic_status_condensed, c("Hypereutrophic", "Eutrophic","Mesotrophic", "Oligotrophic", "Not reported")))) + 
+ geom_bar(fill = "#DDCC77") + 
   xlab("Trophic status") + 
   ylab("Number of reservoirs") +
-  geom_text(aes(label = ..count..), stat = "count", vjust = 1.5, size = 5, colour = "black") + 
+  geom_text(aes(label = ..count..), stat = "count", vjust = 1.2, size = 4, colour = "black") + 
     theme_bw() +
-  theme(text = element_text(size = 20),
-        axis.text.x = element_text(angle = 45, hjust = 1, size = 16))
+  theme(text = element_text(size = 12),
+        axis.text.x = element_text(angle = 45, hjust = 1, size = 10))
 trophic_status
 
 studytype <- litdata_map %>% ggplot(aes(x= factor(mapvals, c("phytoplankton", "cyanobacteria", "both", "selective withdrawal", "pathogen")))) + 
  geom_bar(fill = "#88CCEE") + 
   xlab("Data collected") + 
   ylab("Number of reservoirs") +
-  geom_text(aes(label = ..count..), stat = "count", vjust = 1.5, size = 5, colour = "black") + 
+  geom_text(aes(label = ..count..), stat = "count", vjust = 1.5, size = 5, colour = "black") +
     theme_bw() +
-  theme(text = element_text(size = 20),
-        axis.text.x = element_text(angle = 45, hjust = 1, size = 16))
+  theme(text = element_text(size = 12),
+        axis.text.x = element_text(angle = 45, hjust = 1, size= 10))
 studytype
 
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/studytype.jpg", plot = studytype, height = 5, width = 7, units = "in")
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/trophic_status.jpg", plot = trophic_status, height = 5, width = 7, units = "in")
+# ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/studytype.jpg", plot = studytype, height = 3, width = 6.5, units = "in")
+ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/trophic_status.jpg", plot = trophic_status, height = 3, width = 6.5, units = "in")
 ```
 
 ```{r logistic regression}
@@ -305,7 +328,7 @@ boxplotdata2 <- litdata_na %>%  #changed 0 and 1 for phyto_wl_increase :( after 
     mutate(cyano_response_wl_down = ifelse(cyano_response_wl_decrease == "not significant", "Not significant", 
                                 ifelse(cyano_response_wl_decrease == "decrease", "Decrease", 
                                 ifelse(cyano_response_wl_decrease == "increase", "Increase", 
-                               ifelse(cyano_response_wl_decrease == "shift", "Shift to \n Cyanobacteria \n dominated\n community", NA))))) %>% 
+                               ifelse(cyano_response_wl_decrease == "shift", "Shift to \n cyanobacteria", NA))))) %>% 
   mutate(combined_cyano_response = cyano_response_wl_down %>% 
            is.na() %>% 
            ifelse(cyano_response_wl_up, cyano_response_wl_down)) %>% 
@@ -411,21 +434,20 @@ logregdata <- rbind(cyanodata, phytodata)
 test <- logregdata %>% ggplot(aes(x = prop_delta_wl, y = response_binary, color = as.factor(type), shape = as.factor(type))) +
   scale_color_manual(values = c("#88CCEE", "#117733"), name = "")+
   scale_shape_manual(values = c(8, 20)) +
-  geom_point(size = 2) +
+  geom_point(size = 3) +
   geom_smooth(method = "glm", 
               method.args = list(family = "binomial"),
               se = FALSE, linewidth = 3) + 
   #geom_jitter()+
- ylab("Phytoplankton and\n cyanobacterial\n response to\n changes in water level") + 
-  xlab("Proportion water level change") +   
+ ylab("Response to changes in water level") + 
+  xlab("Proportion water level change") + 
   theme_bw() +
-  theme(text = element_text(size = 12),
-        axis.text.x = element_text(hjust = 1, size = 12), 
-        axis.title.y=element_text(angle=0, vjust = .5))
-
+  theme(axis.text.x = element_text(hjust = 1, size = 10), 
+        axis.title.y=element_text(angle=90, vjust = .5, size = 12), 
+        legend.title=element_blank())
 test
 
-ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/combinedlogregression.png", plot = test, height = 4, width = 8, units = "in")
+ggsave("~/GitHubRepos/CareyLabVT/Powell/Plots/LitReview/NPSReport/combinedlogregression.png", plot = test, height = 3, width = 6.5, units = "in")
 ```
 
 ```{r logistic reg stats}
